@@ -20,10 +20,22 @@
 # META   }
 # META }
 
+# MARKDOWN ********************
+
+# # Leer Datos del archivo dimFilasPYG y cargarlos en un dateframe
+
 # CELL ********************
 
-# Welcome to your new notebook
-# Type here in the cell editor to add code!
+import pandas as pd
+
+excel_path = "abfss://Financiero@onelake.dfs.fabric.microsoft.com/lh_crudo_ERPmicrosoft.Lakehouse/Files/dimFilasPYG.xlsx"
+
+
+df_pandas = pd.read_excel(excel_path, sheet_name="dimFilasPYG")
+
+df_spark = spark.createDataFrame(df_pandas)
+df_spark.show()
+
 
 
 # METADATA ********************
@@ -32,3 +44,26 @@
 # META   "language": "python",
 # META   "language_group": "synapse_pyspark"
 # META }
+
+# MARKDOWN ********************
+
+# # Guardar datos de la tabla dimFilasPYG en el warehouse schema silver
+
+# CELL ********************
+
+import com.microsoft.spark.fabric
+from com.microsoft.spark.fabric.Constants import Constants  
+
+df_spark.write \
+    .mode("overwrite") \
+    .synapsesql("DWH_FinancieroSilver.Silver.dimFilasPYG")
+
+# METADATA ********************
+
+# META {
+# META   "language": "python",
+# META   "language_group": "synapse_pyspark"
+# META }
+
+# MARKDOWN ********************
+

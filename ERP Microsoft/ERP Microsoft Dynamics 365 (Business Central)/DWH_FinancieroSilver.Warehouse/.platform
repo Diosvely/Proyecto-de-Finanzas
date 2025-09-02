@@ -1,12 +1,11 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
   "metadata": {
-    "type": "Notebook",
-    "displayName": "nb_cargadatosWarehouse",
-    "description": "New notebook"
+    "type": "Warehouse",
+    "displayName": "DWH_FinancieroSilver"
   },
   "config": {
     "version": "2.0",
-    "logicalId": "c1152477-e0c7-9b37-4a0f-b98e28d625d7"
+    "logicalId": "b3c7701a-4a5d-9fae-43c3-697d0649e67c"
   }
 }

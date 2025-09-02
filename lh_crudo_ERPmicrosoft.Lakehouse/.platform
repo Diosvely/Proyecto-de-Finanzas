@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Lakehouse",
+    "displayName": "lh_crudo_ERPmicrosoft"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "3ad9f550-5ab3-9de0-49d3-a232ddfa4daa"
+  }
+}

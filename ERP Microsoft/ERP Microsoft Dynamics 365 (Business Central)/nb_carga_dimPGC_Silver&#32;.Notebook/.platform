@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
   "metadata": {
     "type": "Notebook",
-    "displayName": "nb_carga_dimFilasPYG_Silver ",
+    "displayName": "nb_carga_dimPGC_Silver ",
     "description": "New notebook"
   },
   "config": {
     "version": "2.0",
-    "logicalId": "c1152477-e0c7-9b37-4a0f-b98e28d625d7"
+    "logicalId": "72e70f8a-104b-a070-4953-d01f56c9ecb4"
   }
 }

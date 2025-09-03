@@ -22,17 +22,17 @@
 
 # MARKDOWN ********************
 
-# # Leer el archivo Excel `dimFilasPYG.xlsx` desde el Lakehouse (Bronce), transformarlo a DataFrame Spark y mostrar una vista previa.
+# # Leer el archivo Excel `dimPGC.xlsx` desde el Lakehouse (Bronce), transformarlo a DataFrame Spark y mostrar una vista previa.
 
 # CELL ********************
 
 import pandas as pd  # Librería para manejar Excel
 
 # Ruta del archivo Excel en Lakehouse
-excel_path = "abfss://Financiero@onelake.dfs.fabric.microsoft.com/lh_crudo_ERPmicrosoft.Lakehouse/Files/dimFilasPYG.xlsx"
+excel_path = "abfss://Financiero@onelake.dfs.fabric.microsoft.com/lh_crudo_ERPmicrosoft.Lakehouse/Files/dimPGC.xlsx"
 
-# Leemos la hoja 'dimFilasPYG' en un DataFrame de pandas
-df_pandas = pd.read_excel(excel_path, sheet_name="dimFilasPYG")
+# Leemos la hoja 'dimPGC' en un DataFrame de pandas
+df_pandas = pd.read_excel(excel_path, sheet_name="dimPGC")
 
 # Convertimos el DataFrame de pandas a Spark
 df_spark = spark.createDataFrame(df_pandas)
@@ -51,17 +51,18 @@ df_spark.show()
 
 # MARKDOWN ********************
 
-# # Guardar datos de la tabla dimFilasPYG en el warehouse schema silver
+# # Guardar datos de la tabla dimPGC en el warehouse schema silver
 
 # CELL ********************
 
 import com.microsoft.spark.fabric                # Importa librerías Fabric para escribir en DW
 from com.microsoft.spark.fabric.Constants import Constants  # Constantes para la integración
 
-# Escribimos el DataFrame en el Data Warehouse, esquema Silver
+# Escribimos el DataFrame en el Data Warehouse, esquema Silve
+
 # Sobrescribe la tabla si ya existe
 df_spark.write \
-    .mode("overwrite").synapsesql("DWH_FinancieroSilver.Silver.dimFilasPYG")  # Destino: DW, esquema Silver, tabla dimFilasPYG
+    .mode("overwrite").synapsesql("DWH_FinancieroSilver.Silver.dimPGC")  # Destino: DW, esquema Silver, tabla dimPGC
 
 
 # METADATA ********************

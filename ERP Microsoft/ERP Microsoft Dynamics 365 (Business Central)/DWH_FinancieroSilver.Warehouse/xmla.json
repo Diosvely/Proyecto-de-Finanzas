@@ -64,6 +64,200 @@
             "value": "False"
           }
         ]
+      },
+      {
+        "name": "dimPGC",
+        "sourceLineageTag": "[Silver].[dimPGC]",
+        "columns": [
+          {
+            "name": "ID_cuenta",
+            "dataType": "int64",
+            "sourceColumn": "ID_cuenta",
+            "formatString": "0",
+            "sourceProviderType": "bigint",
+            "sourceLineageTag": "ID_cuenta",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "nomCta",
+            "dataType": "string",
+            "sourceColumn": "nomCta",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "nomCta",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "nomSubgrupo",
+            "dataType": "string",
+            "sourceColumn": "nomSubgrupo",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "nomSubgrupo",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "ID_ordenPYG",
+            "dataType": "int64",
+            "sourceColumn": "ID_ordenPYG",
+            "formatString": "0",
+            "sourceProviderType": "bigint",
+            "sourceLineageTag": "ID_ordenPYG",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "subEpigrafe",
+            "dataType": "string",
+            "sourceColumn": "subEpigrafe",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "subEpigrafe",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "epigrafe",
+            "dataType": "string",
+            "sourceColumn": "epigrafe",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "epigrafe",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "nomMasa",
+            "dataType": "string",
+            "sourceColumn": "nomMasa",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "nomMasa",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "nomEstado",
+            "dataType": "string",
+            "sourceColumn": "nomEstado",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "nomEstado",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "flujoDeCajaEpi1",
+            "dataType": "string",
+            "sourceColumn": "flujoDeCajaEpi1",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "flujoDeCajaEpi1",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "flujoDeCajaEpi2",
+            "dataType": "string",
+            "sourceColumn": "flujoDeCajaEpi2",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "flujoDeCajaEpi2",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "directoIndirecto",
+            "dataType": "string",
+            "sourceColumn": "directoIndirecto",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "directoIndirecto",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "fijoVariable",
+            "dataType": "string",
+            "sourceColumn": "fijoVariable",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "fijoVariable",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "{{Partition_Name}}",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "dimPGC",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "Silver"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "IsTableInBiModel",
+            "value": "False"
+          }
+        ]
       }
     ],
     "expressions": [

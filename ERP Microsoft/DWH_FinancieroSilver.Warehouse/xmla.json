@@ -258,6 +258,72 @@
             "value": "False"
           }
         ]
+      },
+      {
+        "name": "factDiario",
+        "sourceLineageTag": "[Silver].[factDiario]",
+        "columns": [
+          {
+            "name": "ID_cuenta",
+            "dataType": "string",
+            "sourceColumn": "ID_cuenta",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "ID_cuenta",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "Fecha",
+            "dataType": "string",
+            "sourceColumn": "Fecha",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "Fecha",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "Importe",
+            "dataType": "string",
+            "sourceColumn": "Importe",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "Importe",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "{{Partition_Name}}",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "factDiario",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "Silver"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "IsTableInBiModel",
+            "value": "False"
+          }
+        ]
       }
     ],
     "expressions": [

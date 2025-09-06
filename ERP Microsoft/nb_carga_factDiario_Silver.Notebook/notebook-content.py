@@ -43,6 +43,7 @@ csv_path = "abfss://Financiero@onelake.dfs.fabric.microsoft.com/lh_crudo_ERPmicr
 df_spark = spark.read.option("header", True) \
                      .option("inferSchema", True) \
                      .option("sep", ";") \
+                     .option("encoding", "ISO-8859-1") \
                      .csv(csv_path)
 
 # ------------------------
@@ -54,6 +55,84 @@ df_spark.show(5, truncate=False)
 # Mostrar esquema de columnas
 # ------------------------
 df_spark.printSchema()
+
+
+# METADATA ********************
+
+# META {
+# META   "language": "python",
+# META   "language_group": "synapse_pyspark"
+# META }
+
+# MARKDOWN ********************
+
+# # Convertir Amount en numero lo interpretaba como texto string
+
+# CELL ********************
+
+from pyspark.sql import functions as F
+
+# Convertir "Amount" de string con coma decimal a double
+df_spark = df_spark.withColumn(
+    "Amount",
+    F.regexp_replace("Amount", ",", ".").cast("double")
+)
+
+# Verificar esquema
+df_spark.printSchema()
+
+# Verificar primeras filas
+df_spark.select("Amount").show(10, truncate=False)
+
+
+# METADATA ********************
+
+# META {
+# META   "language": "python",
+# META   "language_group": "synapse_pyspark"
+# META }
+
+# MARKDOWN ********************
+
+# # Comprobacion de la suma total para ver si da con correcto
+
+# CELL ********************
+
+# Calcular la suma total de la columna Importe
+suma_importe = df_spark.agg(F.sum("Amount").alias("Total_Importe")).collect()[0]["Total_Importe"]
+
+print(f"Suma total de Importe: {suma_importe}")
+
+# METADATA ********************
+
+# META {
+# META   "language": "python",
+# META   "language_group": "synapse_pyspark"
+# META }
+
+# MARKDOWN ********************
+
+# # código para inspeccionar cada columna y mostrar los caracteres no ASCII que contiene 
+
+# CELL ********************
+
+# este codigo me sirve para saber como cogio los caracteres especiales o sea tildes y ñ
+from pyspark.sql import functions as F
+import string
+
+# Función auxiliar para detectar caracteres no ASCII
+def non_ascii_chars(col_name):
+    return F.udf(lambda x: ''.join([c for c in str(x) if ord(c) > 127]) if x is not None else '', "string")
+
+# Iterar sobre todas las columnas
+for col in df_spark.columns:
+    print(f"\n--- Columna: {col} ---")
+    
+    # Crear columna temporal con los caracteres no ASCII
+    df_check = df_spark.withColumn("NonASCII", non_ascii_chars(col)(F.col(col)))
+    
+    # Mostrar las filas que tienen caracteres no ASCII
+    df_check.filter(F.col("NonASCII") != "").select(col, "NonASCII").show(10, truncate=False)
 
 
 # METADATA ********************
@@ -90,22 +169,23 @@ df_spark.select("G_L Account No_", "Description_", "Combinada").show(5, truncate
 
 # MARKDOWN ********************
 
-# #Crear  una columna personalizada para saber si un asiento es de regularización o no 
+# # Crear  una columna personalizada para saber si un asiento es de regularización o no 
 
 # CELL ********************
 
 from pyspark.sql import functions as F
 
-# Agregar columna 'Personalizado' según la lógica de M
+# Crear columna 'Personalizado' replicando la lógica exacta de M
 df_spark = df_spark.withColumn(
     "Personalizado",
-    F.when(F.col("Combinada") == "129000000-Asiento de regularización", 1)
-     .when(~F.col("Combinada").contains("Asiento de regularización"), 1)
-     .otherwise(0)
+    F.when(F.col("Combinada") == "129000000-Asiento de regularización", 1)  # Exact match → 1
+     .when(~F.col("Combinada").contains("Asiento de regularización"), 1)     # No contiene → 1
+     .otherwise(0)                                                           # Todo lo demás → 0
 )
 
 # Mostrar algunas filas para validar
-df_spark.select("Combinada", "Personalizado").show(10, truncate=False)
+df_spark.select("Combinada", "Personalizado").show(20, truncate=False)
+
 
 
 # METADATA ********************
@@ -121,12 +201,54 @@ df_spark.select("Combinada", "Personalizado").show(10, truncate=False)
 
 # CELL ********************
 
+from pyspark.sql import functions as F
+
+# -------------------------------------------------
+# Contar los valores de la columna 'Personalizado'
+# -------------------------------------------------
+# groupBy("Personalizado") -> Agrupa el DataFrame por la columna Personalizado (0 y 1)
+# agg(F.count("*").alias("Cantidad")) -> Cuenta cuántas filas hay en cada grupo y asigna el nombre 'Cantidad'
+conteo_personalizado = df_spark.groupBy("Personalizado") \
+                               .agg(F.count("*").alias("Cantidad"))
+
+# Mostrar el resultado en consola
+# La tabla mostrará cuántos registros tienen Personalizado = 0 y cuántos tienen Personalizado = 1
+conteo_personalizado.show()
+
+
+# METADATA ********************
+
+# META {
+# META   "language": "python",
+# META   "language_group": "synapse_pyspark"
+# META }
+
+# CELL ********************
+
 # Filtrar el DataFrame para conservar solo filas donde Personalizado = 1
 df_spark_filtrado = df_spark.filter(F.col("Personalizado") == 1)
 
 # Mostrar algunas filas para validar
 df_spark_filtrado.show(10, truncate=False)
 
+
+# METADATA ********************
+
+# META {
+# META   "language": "python",
+# META   "language_group": "synapse_pyspark"
+# META }
+
+# MARKDOWN ********************
+
+# # Comprobar que la Suma despues de filtrar esta OK
+
+# CELL ********************
+
+# Calcular la suma total de la columna Importe
+suma_importe = df_spark_filtrado.agg(F.sum("Amount").alias("Total_Importe")).collect()[0]["Total_Importe"]
+
+print(f"Suma total de Importe: {suma_importe}")
 
 # METADATA ********************
 
@@ -199,6 +321,37 @@ df_spark_final = df_spark_final.withColumnRenamed("G_L Account No_", "ID_cuenta"
 df_spark_final.printSchema()
 df_spark_final.show(10, truncate=False)
 
+# METADATA ********************
+
+# META {
+# META   "language": "python",
+# META   "language_group": "synapse_pyspark"
+# META }
+
+# MARKDOWN ********************
+
+# # Comprobar que el importe es el correcto antes de llevarlo a la capa plata
+
+# CELL ********************
+
+# Calcular la suma total de la columna Importe
+suma_importe = df_spark_final.agg(F.sum("importe").alias("Total_Importe")).collect()[0]["Total_Importe"]
+
+print(f"Suma total de Importe: {suma_importe}")
+
+# METADATA ********************
+
+# META {
+# META   "language": "python",
+# META   "language_group": "synapse_pyspark"
+# META }
+
+# CELL ********************
+
+df_spark_final = df_spark_final.withColumnRenamed("ID_cuenta", "ID_cuenta") \
+                               .withColumnRenamed("Importe", "Importe") \
+                               .withColumnRenamed("Fecha", "Fecha")
+
 
 # METADATA ********************
 
@@ -220,7 +373,17 @@ from com.microsoft.spark.fabric.Constants import Constants  # Constantes para la
 
 # Sobrescribe la tabla si ya existe
 df_spark_final.write \
-    .mode("overwrite").synapsesql("DWH_FinancieroSilver.Silver.factDiario")  # Destino: DW, esquema Silver, tabla factDiario
+    .mode("overwrite").synapsesql("DWH_FinancieroSilver.Silver.fact_Diario")  # Destino: DW, esquema Silver, tabla factDiario
+
+# METADATA ********************
+
+# META {
+# META   "language": "python",
+# META   "language_group": "synapse_pyspark"
+# META }
+
+# CELL ********************
+
 
 # METADATA ********************
 

@@ -13,6 +13,685 @@
     "sourceQueryCulture": "en-US",
     "tables": [
       {
+        "name": "dimFilasPYG(1)",
+        "sourceLineageTag": "[Gold].[dimFilasPYG]",
+        "columns": [
+          {
+            "name": "nombreFilaPYG",
+            "dataType": "string",
+            "sourceColumn": "nombreFilaPYG",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "nombreFilaPYG",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "ID_ordenPYG",
+            "dataType": "int64",
+            "sourceColumn": "ID_ordenPYG",
+            "formatString": "0",
+            "sourceProviderType": "bigint",
+            "sourceLineageTag": "ID_ordenPYG",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "{{Partition_Name}}",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "dimFilasPYG",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "Gold"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "IsTableInBiModel",
+            "value": "False"
+          }
+        ]
+      },
+      {
+        "name": "dimPGC(1)",
+        "sourceLineageTag": "[Gold].[dimPGC]",
+        "columns": [
+          {
+            "name": "epigrafe",
+            "dataType": "string",
+            "sourceColumn": "epigrafe",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "epigrafe",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "ID_ordenPYG",
+            "dataType": "int64",
+            "sourceColumn": "ID_ordenPYG",
+            "formatString": "0",
+            "sourceProviderType": "bigint",
+            "sourceLineageTag": "ID_ordenPYG",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "directoIndirecto",
+            "dataType": "string",
+            "sourceColumn": "directoIndirecto",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "directoIndirecto",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "nomMasa",
+            "dataType": "string",
+            "sourceColumn": "nomMasa",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "nomMasa",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "flujoDeCajaEpi2",
+            "dataType": "string",
+            "sourceColumn": "flujoDeCajaEpi2",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "flujoDeCajaEpi2",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "nomCta",
+            "dataType": "string",
+            "sourceColumn": "nomCta",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "nomCta",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "ID_cuenta",
+            "dataType": "int64",
+            "sourceColumn": "ID_cuenta",
+            "formatString": "0",
+            "sourceProviderType": "bigint",
+            "sourceLineageTag": "ID_cuenta",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "fijoVariable",
+            "dataType": "string",
+            "sourceColumn": "fijoVariable",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "fijoVariable",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "nomEstado",
+            "dataType": "string",
+            "sourceColumn": "nomEstado",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "nomEstado",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "flujoDeCajaEpi1",
+            "dataType": "string",
+            "sourceColumn": "flujoDeCajaEpi1",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "flujoDeCajaEpi1",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "subEpigrafe",
+            "dataType": "string",
+            "sourceColumn": "subEpigrafe",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "subEpigrafe",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "nomSubgrupo",
+            "dataType": "string",
+            "sourceColumn": "nomSubgrupo",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "nomSubgrupo",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "{{Partition_Name}}",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "dimPGC",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "Gold"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "IsTableInBiModel",
+            "value": "False"
+          }
+        ]
+      },
+      {
+        "name": "dim_Calendario",
+        "sourceLineageTag": "[Gold].[dim_Calendario]",
+        "columns": [
+          {
+            "name": "Fecha",
+            "dataType": "dateTime",
+            "sourceColumn": "Fecha",
+            "formatString": "General Date",
+            "sourceProviderType": "date",
+            "sourceLineageTag": "Fecha",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "Año",
+            "dataType": "int64",
+            "sourceColumn": "Año",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "Año",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "Trimestre",
+            "dataType": "int64",
+            "sourceColumn": "Trimestre",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "Trimestre",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "NumMes",
+            "dataType": "int64",
+            "sourceColumn": "NumMes",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "NumMes",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "Mes",
+            "dataType": "string",
+            "sourceColumn": "Mes",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "Mes",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "MesCorto",
+            "dataType": "string",
+            "sourceColumn": "MesCorto",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "MesCorto",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "Día",
+            "dataType": "int64",
+            "sourceColumn": "Día",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "Día",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "DíaSemana",
+            "dataType": "int64",
+            "sourceColumn": "DíaSemana",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "DíaSemana",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "NombreDíaSemana",
+            "dataType": "string",
+            "sourceColumn": "NombreDíaSemana",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "NombreDíaSemana",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "PrimerDíaMes",
+            "dataType": "dateTime",
+            "sourceColumn": "PrimerDíaMes",
+            "formatString": "General Date",
+            "sourceProviderType": "date",
+            "sourceLineageTag": "PrimerDíaMes",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "ÚltimoDíaMes",
+            "dataType": "dateTime",
+            "sourceColumn": "ÚltimoDíaMes",
+            "formatString": "General Date",
+            "sourceProviderType": "date",
+            "sourceLineageTag": "ÚltimoDíaMes",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "PrimerDíaTrimestre",
+            "dataType": "dateTime",
+            "sourceColumn": "PrimerDíaTrimestre",
+            "formatString": "General Date",
+            "sourceProviderType": "date",
+            "sourceLineageTag": "PrimerDíaTrimestre",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "ÚltimoDíaTrimestre",
+            "dataType": "dateTime",
+            "sourceColumn": "ÚltimoDíaTrimestre",
+            "formatString": "General Date",
+            "sourceProviderType": "date",
+            "sourceLineageTag": "ÚltimoDíaTrimestre",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "PrimerDíaAño",
+            "dataType": "dateTime",
+            "sourceColumn": "PrimerDíaAño",
+            "formatString": "General Date",
+            "sourceProviderType": "date",
+            "sourceLineageTag": "PrimerDíaAño",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "ÚltimoDíaAño",
+            "dataType": "dateTime",
+            "sourceColumn": "ÚltimoDíaAño",
+            "formatString": "General Date",
+            "sourceProviderType": "date",
+            "sourceLineageTag": "ÚltimoDíaAño",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "Laborable_FinSemana",
+            "dataType": "string",
+            "sourceColumn": "Laborable_FinSemana",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "Laborable_FinSemana",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "CuentaLaborable",
+            "dataType": "int64",
+            "sourceColumn": "CuentaLaborable",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "CuentaLaborable",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "CuentaFinDeSemana",
+            "dataType": "int64",
+            "sourceColumn": "CuentaFinDeSemana",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "CuentaFinDeSemana",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "Estacion",
+            "dataType": "string",
+            "sourceColumn": "Estacion",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "Estacion",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "Semana",
+            "dataType": "string",
+            "sourceColumn": "Semana",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "Semana",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "OrdenSemana",
+            "dataType": "int64",
+            "sourceColumn": "OrdenSemana",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "OrdenSemana",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "AñoSemana",
+            "dataType": "string",
+            "sourceColumn": "AñoSemana",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "AñoSemana",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "OrdenAñoSemana",
+            "dataType": "int64",
+            "sourceColumn": "OrdenAñoSemana",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "OrdenAñoSemana",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "{{Partition_Name}}",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "dim_Calendario",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "Gold"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "IsTableInBiModel",
+            "value": "False"
+          }
+        ]
+      },
+      {
+        "name": "fact_Diario(1)",
+        "sourceLineageTag": "[Gold].[fact_Diario]",
+        "columns": [
+          {
+            "name": "Importe",
+            "dataType": "double",
+            "sourceColumn": "Importe",
+            "sourceProviderType": "float",
+            "sourceLineageTag": "Importe",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ]
+          },
+          {
+            "name": "ID_cuenta",
+            "dataType": "string",
+            "sourceColumn": "ID_cuenta",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "ID_cuenta",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "Fecha",
+            "dataType": "string",
+            "sourceColumn": "Fecha",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "Fecha",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "{{Partition_Name}}",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "fact_Diario",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "Gold"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "IsTableInBiModel",
+            "value": "False"
+          }
+        ]
+      },
+      {
         "name": "dimFilasPYG",
         "sourceLineageTag": "[Silver].[dimFilasPYG]",
         "columns": [
@@ -260,8 +939,8 @@
         ]
       },
       {
-        "name": "factDiario",
-        "sourceLineageTag": "[Silver].[factDiario]",
+        "name": "fact_Diario",
+        "sourceLineageTag": "[Silver].[fact_Diario]",
         "columns": [
           {
             "name": "ID_cuenta",
@@ -293,15 +972,19 @@
           },
           {
             "name": "Importe",
-            "dataType": "string",
+            "dataType": "double",
             "sourceColumn": "Importe",
-            "sourceProviderType": "varchar",
+            "sourceProviderType": "float",
             "sourceLineageTag": "Importe",
-            "summarizeBy": "none",
+            "summarizeBy": "sum",
             "annotations": [
               {
                 "name": "SummarizationSetBy",
                 "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
               }
             ]
           }
@@ -312,7 +995,7 @@
             "mode": "directLake",
             "source": {
               "type": "entity",
-              "entityName": "factDiario",
+              "entityName": "fact_Diario",
               "expressionSource": "DatabaseQuery",
               "schemaName": "Silver"
             }

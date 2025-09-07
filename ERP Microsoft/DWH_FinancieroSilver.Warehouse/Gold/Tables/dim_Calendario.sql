@@ -1,0 +1,26 @@
+CREATE TABLE [Gold].[dim_Calendario] (
+
+	[Fecha] date NOT NULL, 
+	[Año] int NOT NULL, 
+	[Trimestre] int NOT NULL, 
+	[NumMes] int NOT NULL, 
+	[Mes] varchar(max) NOT NULL, 
+	[MesCorto] varchar(max) NOT NULL, 
+	[Día] int NOT NULL, 
+	[DíaSemana] int NOT NULL, 
+	[NombreDíaSemana] varchar(max) NOT NULL, 
+	[PrimerDíaMes] date NULL, 
+	[ÚltimoDíaMes] date NOT NULL, 
+	[PrimerDíaTrimestre] date NULL, 
+	[ÚltimoDíaTrimestre] date NULL, 
+	[PrimerDíaAño] date NULL, 
+	[ÚltimoDíaAño] date NULL, 
+	[Laborable_FinSemana] varchar(max) NOT NULL, 
+	[CuentaLaborable] int NOT NULL, 
+	[CuentaFinDeSemana] int NOT NULL, 
+	[Estacion] varchar(max) NOT NULL, 
+	[Semana] varchar(max) NOT NULL, 
+	[OrdenSemana] int NOT NULL, 
+	[AñoSemana] varchar(max) NOT NULL, 
+	[OrdenAñoSemana] int NOT NULL
+);

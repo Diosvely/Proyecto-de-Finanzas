@@ -14,6 +14,9 @@
 # META       "known_lakehouses": [
 # META         {
 # META           "id": "ddfa4daa-a232-49d3-9de0-5ab33ad9f550"
+# META         },
+# META         {
+# META           "id": "913c10d2-a83e-4347-ad4b-832d9101d028"
 # META         }
 # META       ]
 # META     }
@@ -26,10 +29,14 @@
 
 # CELL ********************
 
+# Importante Como estamos en la prueba Gratis de Fabric despues que se nos vence  y volvemos a sincronizar el area de trabajo con el GIt 
+# hay que cargar los datos en el lakehause desde el excel de dimFilasPYG.xlsx 
+
+
 import pandas as pd  # Librería para manejar Excel
 
 # Ruta del archivo Excel en Lakehouse
-excel_path = "abfss://Financiero@onelake.dfs.fabric.microsoft.com/lh_crudo_ERPmicrosoft.Lakehouse/Files/dimFilasPYG.xlsx"
+excel_path = "abfss://2f7e9320-f5c7-43c4-a7d7-2f1d20bf4340@onelake.dfs.fabric.microsoft.com/913c10d2-a83e-4347-ad4b-832d9101d028/Files/dimFilasPYG.xlsx"
 
 # Leemos la hoja 'dimFilasPYG' en un DataFrame de pandas
 df_pandas = pd.read_excel(excel_path, sheet_name="dimFilasPYG")

@@ -2,7 +2,7 @@
 <Project DefaultTargets="Build">
   <Sdk Name="Microsoft.Build.Sql" Version="2.0.0-preview.5" />
   <PropertyGroup>
-    <Name>Financiero</Name>
+    <Name>db_Financiero</Name>
     <ProjectGuid>{00000000-0000-0000-0000-000000000000}</ProjectGuid>
     <DSP>Microsoft.Data.Tools.Schema.Sql.SqlDbFabricDatabaseSchemaProvider</DSP>
     <ModelCollation>1033, CI</ModelCollation>

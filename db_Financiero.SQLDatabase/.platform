@@ -2,10 +2,10 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
   "metadata": {
     "type": "SQLDatabase",
-    "displayName": "Financiero"
+    "displayName": "db_Financiero"
   },
   "config": {
     "version": "2.0",
-    "logicalId": "e5ac2b5d-2038-95a5-4b9a-3341b17b85cd"
+    "logicalId": "b1037356-1b29-bbc5-4b98-fd4c6fff9ba1"
   }
 }

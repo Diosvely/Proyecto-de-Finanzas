@@ -1,0 +1,118 @@
+{
+  "properties": {
+    "jobMode": "Batch",
+    "source": {
+      "type": "FabricSqlDatabaseTable",
+      "connectionSettings": {
+        "type": "FabricSqlDatabase",
+        "typeProperties": {
+          "workspaceId": "b570c916-3a01-4e30-8185-4cfcad14351d",
+          "artifactId": "63d314e8-624c-4ea6-a13d-9ff1f03a2fa4"
+        },
+        "externalReferences": {
+          "connection": "1ecfbdfd-8206-48e3-9311-6177551a699b"
+        }
+      }
+    },
+    "destination": {
+      "type": "LakehouseTable",
+      "connectionSettings": {
+        "type": "Lakehouse",
+        "typeProperties": {
+          "workspaceId": "00000000-0000-0000-0000-000000000000",
+          "artifactId": "3ad9f550-5ab3-9de0-49d3-a232ddfa4daa",
+          "rootFolder": "Tables"
+        },
+        "externalReferences": {
+          "connection": "dedd17fb-b0e4-48d3-91ff-081900dc8e9c"
+        }
+      }
+    },
+    "policy": {
+      "timeout": "0.12:00:00"
+    }
+  },
+  "activities": [
+    {
+      "id": "f18757ef1f14f",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "dbo",
+            "table": "dimCF"
+          }
+        },
+        "destination": {
+          "writeBehavior": "Append",
+          "datasetSettings": {
+            "table": "dbo_dimCF"
+          }
+        },
+        "enableStaging": false,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "f18757ef1f14f",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "dbo",
+            "table": "dimPGC"
+          }
+        },
+        "destination": {
+          "writeBehavior": "Append",
+          "datasetSettings": {
+            "table": "dbo_dimPGC"
+          }
+        },
+        "enableStaging": false,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "f18757ef1f14f",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "dbo",
+            "table": "dimPyG"
+          }
+        },
+        "destination": {
+          "writeBehavior": "Append",
+          "datasetSettings": {
+            "table": "dbo_dimPyG"
+          }
+        },
+        "enableStaging": false,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    }
+  ]
+}

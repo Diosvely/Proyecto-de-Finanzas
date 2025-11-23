@@ -2,10 +2,10 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
   "metadata": {
     "type": "DataPipeline",
-    "displayName": "pl_Ingesta_hechoscontables"
+    "displayName": "pl_basedatos->lakehause"
   },
   "config": {
     "version": "2.0",
-    "logicalId": "f1398c91-7642-ac29-46ff-613ea1e03507"
+    "logicalId": "539c226a-a995-b985-4de1-60045b07747a"
   }
 }

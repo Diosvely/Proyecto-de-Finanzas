@@ -1,11 +1,11 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
   "metadata": {
-    "type": "DataPipeline",
-    "displayName": "pl_ingesta_dimPGC"
+    "type": "Notebook",
+    "displayName": "nb_PasarFicheros->Tablas"
   },
   "config": {
     "version": "2.0",
-    "logicalId": "6b1286f7-5033-ad4a-4919-00c1688cc20d"
+    "logicalId": "c1169ad0-5937-bed7-4406-289ba4b7d0a3"
   }
 }

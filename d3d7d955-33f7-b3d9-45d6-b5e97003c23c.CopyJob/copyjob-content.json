@@ -34,34 +34,7 @@
   },
   "activities": [
     {
-      "id": "f18757ef1f14f",
-      "properties": {
-        "source": {
-          "datasetSettings": {
-            "schema": "dbo",
-            "table": "dimCF"
-          }
-        },
-        "destination": {
-          "writeBehavior": "Append",
-          "datasetSettings": {
-            "table": "dbo_dimCF"
-          }
-        },
-        "enableStaging": false,
-        "translator": {
-          "type": "TabularTranslator"
-        },
-        "typeConversionSettings": {
-          "typeConversion": {
-            "allowDataTruncation": true,
-            "treatBooleanAsNumber": false
-          }
-        }
-      }
-    },
-    {
-      "id": "f18757ef1f14f",
+      "id": "0e4d62d3-5da3-4a06-a052-011e2ebaaf2d",
       "properties": {
         "source": {
           "datasetSettings": {
@@ -88,7 +61,7 @@
       }
     },
     {
-      "id": "f18757ef1f14f",
+      "id": "a148a702-e3e2-41cd-8dfa-6bbadad70d76",
       "properties": {
         "source": {
           "datasetSettings": {

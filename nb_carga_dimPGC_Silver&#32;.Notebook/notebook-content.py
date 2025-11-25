@@ -14,6 +14,9 @@
 # META       "known_lakehouses": [
 # META         {
 # META           "id": "ddfa4daa-a232-49d3-9de0-5ab33ad9f550"
+# META         },
+# META         {
+# META           "id": "d34c1d5c-d1ce-42bf-8c1e-2f0e9cc153bc"
 # META         }
 # META       ]
 # META     }
@@ -22,23 +25,14 @@
 
 # MARKDOWN ********************
 
-# # Leer el archivo Excel `dimPGC.xlsx` desde el Lakehouse (Bronce), transformarlo a DataFrame Spark y mostrar una vista previa.
+# # Leemos los ficheros spark que estan en la carpeta humanresuorces y los materializamos en dataframes(materializar parquet en tablas)
 
 # CELL ********************
 
-import pandas as pd  # Librería para manejar Excel
-
-# Ruta del archivo Excel en Lakehouse
-excel_path = "abfss://Financiero@onelake.dfs.fabric.microsoft.com/lh_crudo_ERPmicrosoft.Lakehouse/Files/dimPGC.xlsx"
-
-# Leemos la hoja 'dimPGC' en un DataFrame de pandas
-df_pandas = pd.read_excel(excel_path, sheet_name="dimPGC")
-
-# Convertimos el DataFrame de pandas a Spark
-df_spark = spark.createDataFrame(df_pandas)
-
-# Mostramos las primeras filas para validar la carga
-df_spark.show()
+# Codigo para leer una tabla para saber que tiene 
+df_revisar = spark.read.table("lh_bronce_ERP_Microsoft.factDiario")
+df_revisar   # para saber el tipo de datos 
+display(df_revisar) # para ver los datos
 
 
 

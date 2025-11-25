@@ -1,12 +1,11 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
   "metadata": {
-    "type": "Warehouse",
-    "displayName": "dwh_Silver_dimensional",
-    "description": ""
+    "type": "Notebook",
+    "displayName": "nb_pasarBroncetoSilver"
   },
   "config": {
     "version": "2.0",
-    "logicalId": "0a303bb1-33c7-908c-40d2-f627e6b7f4f2"
+    "logicalId": "5c989d80-075a-83ad-4318-2cfdca802e8b"
   }
 }

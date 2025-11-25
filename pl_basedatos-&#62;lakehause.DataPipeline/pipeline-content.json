@@ -2,25 +2,6 @@
   "properties": {
     "activities": [
       {
-        "type": "InvokeCopyJob",
-        "typeProperties": {
-          "copyJobId": "0f26e4f4-d4e4-a558-4bc3-95bd98fa941e",
-          "workspaceId": "00000000-0000-0000-0000-000000000000"
-        },
-        "externalReferences": {
-          "connection": "9b3e34a4-f041-45dd-9a28-0bd7c239a4fc"
-        },
-        "policy": {
-          "timeout": "0.12:00:00",
-          "retry": 0,
-          "retryIntervalInSeconds": 30,
-          "secureInput": false,
-          "secureOutput": false
-        },
-        "name": "Copy job_362",
-        "dependsOn": []
-      },
-      {
         "type": "Copy",
         "typeProperties": {
           "source": {
@@ -31,7 +12,7 @@
               "type": "FabricSqlDatabaseTable",
               "typeProperties": {
                 "schema": "dbo",
-                "table": "HechosDynamics365"
+                "table": "dimCF"
               },
               "schema": [],
               "connectionSettings": {
@@ -52,23 +33,14 @@
             }
           },
           "sink": {
-            "type": "ParquetSink",
-            "formatSettings": {
-              "type": "ParquetWriteSettings",
-              "enableVertiParquet": true
-            },
-            "storeSettings": {
-              "type": "LakehouseWriteSettings"
-            },
+            "type": "LakehouseTableSink",
+            "tableActionOption": "Append",
+            "applyVOrder": true,
+            "partitionOption": "None",
             "datasetSettings": {
-              "type": "Parquet",
+              "type": "LakehouseTable",
               "typeProperties": {
-                "location": {
-                  "type": "LakehouseLocation",
-                  "folderPath": "Economia",
-                  "fileName": "Fact_asientocontable"
-                },
-                "compressionCodec": "snappy"
+                "table": "dimCF"
               },
               "schema": [],
               "connectionSettings": {
@@ -78,7 +50,7 @@
                   "typeProperties": {
                     "artifactId": "3ad9f550-5ab3-9de0-49d3-a232ddfa4daa",
                     "workspaceId": "00000000-0000-0000-0000-000000000000",
-                    "rootFolder": "Files"
+                    "rootFolder": "Tables"
                   },
                   "externalReferences": {
                     "connection": "dedd17fb-b0e4-48d3-91ff-081900dc8e9c"
@@ -94,570 +66,71 @@
             "mappings": [
               {
                 "source": {
-                  "name": "Entry No_",
-                  "type": "Int64",
-                  "physicalType": "bigint"
-                },
-                "sink": {
-                  "name": "Entry No_",
-                  "type": "Int64",
-                  "physicalType": "INT_64"
-                }
-              },
-              {
-                "source": {
-                  "name": "G_L Account No_",
-                  "type": "Int64",
-                  "physicalType": "bigint"
-                },
-                "sink": {
-                  "name": "G_L Account No_",
-                  "type": "Int64",
-                  "physicalType": "INT_64"
-                }
-              },
-              {
-                "source": {
-                  "name": "Posting Date",
-                  "type": "Date",
-                  "physicalType": "date"
-                },
-                "sink": {
-                  "name": "Posting Date",
-                  "type": "Date",
-                  "physicalType": "DATE"
-                }
-              },
-              {
-                "source": {
-                  "name": "Document Type",
-                  "type": "Int64",
-                  "physicalType": "bigint"
-                },
-                "sink": {
-                  "name": "Document Type",
-                  "type": "Int64",
-                  "physicalType": "INT_64"
-                }
-              },
-              {
-                "source": {
-                  "name": "Amount",
-                  "type": "Double",
-                  "physicalType": "float"
-                },
-                "sink": {
-                  "name": "Amount",
-                  "type": "Double",
-                  "physicalType": "DOUBLE"
-                }
-              },
-              {
-                "source": {
-                  "name": "Global Dimension 1 Code",
+                  "name": "Nombre Cuenta",
                   "type": "String",
                   "physicalType": "nvarchar",
                   "length": "MAX"
                 },
                 "sink": {
-                  "name": "Global Dimension 1 Code",
-                  "type": "String",
-                  "physicalType": "STRING"
+                  "name": "Nombre Cuenta",
+                  "physicalType": "string"
                 }
               },
               {
                 "source": {
-                  "name": "Source Code",
-                  "type": "String",
-                  "physicalType": "nvarchar",
-                  "length": "MAX"
-                },
-                "sink": {
-                  "name": "Source Code",
-                  "type": "String",
-                  "physicalType": "STRING"
-                }
-              },
-              {
-                "source": {
-                  "name": "System-Created Entry",
-                  "type": "Int64",
-                  "physicalType": "bigint"
-                },
-                "sink": {
-                  "name": "System-Created Entry",
-                  "type": "Int64",
-                  "physicalType": "INT_64"
-                }
-              },
-              {
-                "source": {
-                  "name": "Prior-Year Entry",
-                  "type": "Int64",
-                  "physicalType": "bigint"
-                },
-                "sink": {
-                  "name": "Prior-Year Entry",
-                  "type": "Int64",
-                  "physicalType": "INT_64"
-                }
-              },
-              {
-                "source": {
-                  "name": "Job No_",
+                  "name": "Nivel 1",
                   "type": "String",
                   "physicalType": "nvarchar",
                   "length": "MAX"
                 },
                 "sink": {
-                  "name": "Job No_",
-                  "type": "String",
-                  "physicalType": "STRING"
+                  "name": "Nivel 1",
+                  "physicalType": "string"
                 }
               },
               {
                 "source": {
-                  "name": "Quantity",
-                  "type": "Int64",
-                  "physicalType": "bigint"
-                },
-                "sink": {
-                  "name": "Quantity",
-                  "type": "Int64",
-                  "physicalType": "INT_64"
-                }
-              },
-              {
-                "source": {
-                  "name": "VAT Amount",
-                  "type": "Double",
-                  "physicalType": "float"
-                },
-                "sink": {
-                  "name": "VAT Amount",
-                  "type": "Double",
-                  "physicalType": "DOUBLE"
-                }
-              },
-              {
-                "source": {
-                  "name": "Business Unit Code",
+                  "name": "Nivel 2",
                   "type": "String",
                   "physicalType": "nvarchar",
                   "length": "MAX"
                 },
                 "sink": {
-                  "name": "Business Unit Code",
-                  "type": "String",
-                  "physicalType": "STRING"
+                  "name": "Nivel 2",
+                  "physicalType": "string"
                 }
               },
               {
                 "source": {
-                  "name": "Reason Code",
-                  "type": "String",
-                  "physicalType": "nvarchar",
-                  "length": "MAX"
-                },
-                "sink": {
-                  "name": "Reason Code",
-                  "type": "String",
-                  "physicalType": "STRING"
-                }
-              },
-              {
-                "source": {
-                  "name": "Gen_ Posting Type",
+                  "name": "Cuenta4D",
                   "type": "Int64",
                   "physicalType": "bigint"
                 },
                 "sink": {
-                  "name": "Gen_ Posting Type",
-                  "type": "Int64",
-                  "physicalType": "INT_64"
+                  "name": "Cuenta4D",
+                  "physicalType": "long"
                 }
               },
               {
                 "source": {
-                  "name": "Gen_ Bus_ Posting Group",
-                  "type": "String",
-                  "physicalType": "nvarchar",
-                  "length": "MAX"
-                },
-                "sink": {
-                  "name": "Gen_ Bus_ Posting Group",
-                  "type": "String",
-                  "physicalType": "STRING"
-                }
-              },
-              {
-                "source": {
-                  "name": "Bal_ Account Type",
+                  "name": "OrdenNivel1",
                   "type": "Int64",
                   "physicalType": "bigint"
                 },
                 "sink": {
-                  "name": "Bal_ Account Type",
-                  "type": "Int64",
-                  "physicalType": "INT_64"
+                  "name": "OrdenNivel1",
+                  "physicalType": "long"
                 }
               },
               {
                 "source": {
-                  "name": "Transaction No_",
+                  "name": "OrdenNivel2",
                   "type": "Int64",
                   "physicalType": "bigint"
                 },
                 "sink": {
-                  "name": "Transaction No_",
-                  "type": "Int64",
-                  "physicalType": "INT_64"
-                }
-              },
-              {
-                "source": {
-                  "name": "Debit Amount",
-                  "type": "Double",
-                  "physicalType": "float"
-                },
-                "sink": {
-                  "name": "Debit Amount",
-                  "type": "Double",
-                  "physicalType": "DOUBLE"
-                }
-              },
-              {
-                "source": {
-                  "name": "Credit Amount",
-                  "type": "Double",
-                  "physicalType": "float"
-                },
-                "sink": {
-                  "name": "Credit Amount",
-                  "type": "Double",
-                  "physicalType": "DOUBLE"
-                }
-              },
-              {
-                "source": {
-                  "name": "Document Date",
-                  "type": "String",
-                  "physicalType": "nvarchar",
-                  "length": "MAX"
-                },
-                "sink": {
-                  "name": "Document Date",
-                  "type": "String",
-                  "physicalType": "STRING"
-                }
-              },
-              {
-                "source": {
-                  "name": "Source Type",
-                  "type": "Int64",
-                  "physicalType": "bigint"
-                },
-                "sink": {
-                  "name": "Source Type",
-                  "type": "Int64",
-                  "physicalType": "INT_64"
-                }
-              },
-              {
-                "source": {
-                  "name": "Tax Area Code",
-                  "type": "String",
-                  "physicalType": "nvarchar",
-                  "length": "MAX"
-                },
-                "sink": {
-                  "name": "Tax Area Code",
-                  "type": "String",
-                  "physicalType": "STRING"
-                }
-              },
-              {
-                "source": {
-                  "name": "Tax Liable",
-                  "type": "Int64",
-                  "physicalType": "bigint"
-                },
-                "sink": {
-                  "name": "Tax Liable",
-                  "type": "Int64",
-                  "physicalType": "INT_64"
-                }
-              },
-              {
-                "source": {
-                  "name": "Tax Group Code",
-                  "type": "String",
-                  "physicalType": "nvarchar",
-                  "length": "MAX"
-                },
-                "sink": {
-                  "name": "Tax Group Code",
-                  "type": "String",
-                  "physicalType": "STRING"
-                }
-              },
-              {
-                "source": {
-                  "name": "Use Tax",
-                  "type": "Int64",
-                  "physicalType": "bigint"
-                },
-                "sink": {
-                  "name": "Use Tax",
-                  "type": "Int64",
-                  "physicalType": "INT_64"
-                }
-              },
-              {
-                "source": {
-                  "name": "VAT Bus_ Posting Group",
-                  "type": "String",
-                  "physicalType": "nvarchar",
-                  "length": "MAX"
-                },
-                "sink": {
-                  "name": "VAT Bus_ Posting Group",
-                  "type": "String",
-                  "physicalType": "STRING"
-                }
-              },
-              {
-                "source": {
-                  "name": "VAT Prod_ Posting Group",
-                  "type": "String",
-                  "physicalType": "nvarchar",
-                  "length": "MAX"
-                },
-                "sink": {
-                  "name": "VAT Prod_ Posting Group",
-                  "type": "String",
-                  "physicalType": "STRING"
-                }
-              },
-              {
-                "source": {
-                  "name": "Additional-Currency Amount",
-                  "type": "Int64",
-                  "physicalType": "bigint"
-                },
-                "sink": {
-                  "name": "Additional-Currency Amount",
-                  "type": "Int64",
-                  "physicalType": "INT_64"
-                }
-              },
-              {
-                "source": {
-                  "name": "Add_-Currency Debit Amount",
-                  "type": "Int64",
-                  "physicalType": "bigint"
-                },
-                "sink": {
-                  "name": "Add_-Currency Debit Amount",
-                  "type": "Int64",
-                  "physicalType": "INT_64"
-                }
-              },
-              {
-                "source": {
-                  "name": "Add_-Currency Credit Amount",
-                  "type": "Int64",
-                  "physicalType": "bigint"
-                },
-                "sink": {
-                  "name": "Add_-Currency Credit Amount",
-                  "type": "Int64",
-                  "physicalType": "INT_64"
-                }
-              },
-              {
-                "source": {
-                  "name": "Close Income Statement Dim_ ID",
-                  "type": "Int64",
-                  "physicalType": "bigint"
-                },
-                "sink": {
-                  "name": "Close Income Statement Dim_ ID",
-                  "type": "Int64",
-                  "physicalType": "INT_64"
-                }
-              },
-              {
-                "source": {
-                  "name": "IC Partner Code",
-                  "type": "String",
-                  "physicalType": "nvarchar",
-                  "length": "MAX"
-                },
-                "sink": {
-                  "name": "IC Partner Code",
-                  "type": "String",
-                  "physicalType": "STRING"
-                }
-              },
-              {
-                "source": {
-                  "name": "Reversed",
-                  "type": "Int64",
-                  "physicalType": "bigint"
-                },
-                "sink": {
-                  "name": "Reversed",
-                  "type": "Int64",
-                  "physicalType": "INT_64"
-                }
-              },
-              {
-                "source": {
-                  "name": "Reversed by Entry No_",
-                  "type": "Int64",
-                  "physicalType": "bigint"
-                },
-                "sink": {
-                  "name": "Reversed by Entry No_",
-                  "type": "Int64",
-                  "physicalType": "INT_64"
-                }
-              },
-              {
-                "source": {
-                  "name": "Reversed Entry No_",
-                  "type": "Int64",
-                  "physicalType": "bigint"
-                },
-                "sink": {
-                  "name": "Reversed Entry No_",
-                  "type": "Int64",
-                  "physicalType": "INT_64"
-                }
-              },
-              {
-                "source": {
-                  "name": "Dimension Set ID",
-                  "type": "Int64",
-                  "physicalType": "bigint"
-                },
-                "sink": {
-                  "name": "Dimension Set ID",
-                  "type": "Int64",
-                  "physicalType": "INT_64"
-                }
-              },
-              {
-                "source": {
-                  "name": "Prod_ Order No_",
-                  "type": "String",
-                  "physicalType": "nvarchar",
-                  "length": "MAX"
-                },
-                "sink": {
-                  "name": "Prod_ Order No_",
-                  "type": "String",
-                  "physicalType": "STRING"
-                }
-              },
-              {
-                "source": {
-                  "name": "FA Entry Type",
-                  "type": "Int64",
-                  "physicalType": "bigint"
-                },
-                "sink": {
-                  "name": "FA Entry Type",
-                  "type": "Int64",
-                  "physicalType": "INT_64"
-                }
-              },
-              {
-                "source": {
-                  "name": "FA Entry No_",
-                  "type": "Int64",
-                  "physicalType": "bigint"
-                },
-                "sink": {
-                  "name": "FA Entry No_",
-                  "type": "Int64",
-                  "physicalType": "INT_64"
-                }
-              },
-              {
-                "source": {
-                  "name": "New G_L Account No_",
-                  "type": "String",
-                  "physicalType": "nvarchar",
-                  "length": "MAX"
-                },
-                "sink": {
-                  "name": "New G_L Account No_",
-                  "type": "String",
-                  "physicalType": "STRING"
-                }
-              },
-              {
-                "source": {
-                  "name": "Old G_L Account No_",
-                  "type": "String",
-                  "physicalType": "nvarchar",
-                  "length": "MAX"
-                },
-                "sink": {
-                  "name": "Old G_L Account No_",
-                  "type": "String",
-                  "physicalType": "STRING"
-                }
-              },
-              {
-                "source": {
-                  "name": "Updated",
-                  "type": "Int64",
-                  "physicalType": "bigint"
-                },
-                "sink": {
-                  "name": "Updated",
-                  "type": "Int64",
-                  "physicalType": "INT_64"
-                }
-              },
-              {
-                "source": {
-                  "name": "Period Trans_ No_",
-                  "type": "Int64",
-                  "physicalType": "bigint"
-                },
-                "sink": {
-                  "name": "Period Trans_ No_",
-                  "type": "Int64",
-                  "physicalType": "INT_64"
-                }
-              },
-              {
-                "source": {
-                  "name": "Cost Entry No_",
-                  "type": "Int64",
-                  "physicalType": "bigint"
-                },
-                "sink": {
-                  "name": "Cost Entry No_",
-                  "type": "Int64",
-                  "physicalType": "INT_64"
-                }
-              },
-              {
-                "source": {
-                  "name": "Description_",
-                  "type": "String",
-                  "physicalType": "nvarchar",
-                  "length": "MAX"
-                },
-                "sink": {
-                  "name": "Description_",
-                  "type": "String",
-                  "physicalType": "STRING"
+                  "name": "OrdenNivel2",
+                  "physicalType": "long"
                 }
               }
             ],
@@ -679,12 +152,31 @@
         "name": "Copy data1",
         "dependsOn": [
           {
-            "activity": "Copy job_362",
+            "activity": "Copy job_7c0",
             "dependencyConditions": [
               "Completed"
             ]
           }
         ]
+      },
+      {
+        "type": "InvokeCopyJob",
+        "typeProperties": {
+          "copyJobId": "d3d7d955-33f7-b3d9-45d6-b5e97003c23c",
+          "workspaceId": "00000000-0000-0000-0000-000000000000"
+        },
+        "externalReferences": {
+          "connection": "9b3e34a4-f041-45dd-9a28-0bd7c239a4fc"
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Copy job_7c0",
+        "dependsOn": []
       }
     ]
   }

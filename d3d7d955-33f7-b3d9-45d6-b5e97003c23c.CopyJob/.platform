@@ -1,12 +1,11 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
   "metadata": {
-    "type": "Warehouse",
-    "displayName": "dwh_Silver_dimensional",
-    "description": ""
+    "type": "CopyJob",
+    "displayName": "copyjob1"
   },
   "config": {
     "version": "2.0",
-    "logicalId": "0a303bb1-33c7-908c-40d2-f627e6b7f4f2"
+    "logicalId": "d3d7d955-33f7-b3d9-45d6-b5e97003c23c"
   }
 }

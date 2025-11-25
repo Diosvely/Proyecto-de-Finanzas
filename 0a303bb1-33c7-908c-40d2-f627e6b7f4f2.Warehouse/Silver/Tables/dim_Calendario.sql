@@ -1,14 +1,14 @@
-CREATE TABLE [Gold].[dim_Calendario] (
+CREATE TABLE [Silver].[dim_Calendario] (
 
 	[Fecha] date NOT NULL, 
 	[Año] int NOT NULL, 
 	[Trimestre] int NOT NULL, 
 	[NumMes] int NOT NULL, 
-	[Mes] varchar(max) NOT NULL, 
-	[MesCorto] varchar(max) NOT NULL, 
+	[Mes] varchar(max) NULL, 
+	[MesCorto] varchar(max) NULL, 
 	[Día] int NOT NULL, 
+	[NombreDíaSemana] varchar(max) NULL, 
 	[DíaSemana] int NOT NULL, 
-	[NombreDíaSemana] varchar(max) NOT NULL, 
 	[PrimerDíaMes] date NULL, 
 	[ÚltimoDíaMes] date NOT NULL, 
 	[PrimerDíaTrimestre] date NULL, 

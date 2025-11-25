@@ -2,10 +2,10 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
   "metadata": {
     "type": "Notebook",
-    "displayName": "nb_PasarFicheros->Tablas"
+    "displayName": "nb_Pasar_factDiario_Silver"
   },
   "config": {
     "version": "2.0",
-    "logicalId": "c1169ad0-5937-bed7-4406-289ba4b7d0a3"
+    "logicalId": "908b8d27-c319-ada9-4b1c-e44fcd57a319"
   }
 }

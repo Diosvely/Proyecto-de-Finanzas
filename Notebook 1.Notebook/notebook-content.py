@@ -17,10 +17,78 @@
 # META         },
 # META         {
 # META           "id": "913c10d2-a83e-4347-ad4b-832d9101d028"
+# META         },
+# META         {
+# META           "id": "d34c1d5c-d1ce-42bf-8c1e-2f0e9cc153bc"
 # META         }
 # META       ]
 # META     }
 # META   }
+# META }
+
+# CELL ********************
+
+df_dimCf = spark.read.parquet("abfss://66918516-32b2-4b32-a2c1-64fbcc79964f@onelake.dfs.fabric.microsoft.com/d34c1d5c-d1ce-42bf-8c1e-2f0e9cc153bc/Tables/dbo_dimCF")
+df_dimPGC = spark.read.parquet("abfss://66918516-32b2-4b32-a2c1-64fbcc79964f@onelake.dfs.fabric.microsoft.com/d34c1d5c-d1ce-42bf-8c1e-2f0e9cc153bc/Tables/dbo_dimPGC")
+dim_PYG =  ("abfss://66918516-32b2-4b32-a2c1-64fbcc79964f@onelake.dfs.fabric.microsoft.com/d34c1d5c-d1ce-42bf-8c1e-2f0e9cc153bc/Tables/dbo_dimPGC")
+
+# METADATA ********************
+
+# META {
+# META   "language": "python",
+# META   "language_group": "synapse_pyspark"
+# META }
+
+# CELL ********************
+
+# Con Spark SQL, ejecuta la consulta en lakehouse, que se encuentra en la misma área de trabajo que el lakehouse predeterminado actual.
+df = spark.sql( """ SELECT * FROM lh_bronce_ERP_Microsoft.dbo_dimPyG LIMIT 1000 """) 
+
+
+# METADATA ********************
+
+# META {
+# META   "language": "python",
+# META   "language_group": "synapse_pyspark"
+# META }
+
+# CELL ********************
+
+# Con Spark SQL, ejecuta la consulta en lakehouse, que se encuentra en la misma área de trabajo que el lakehouse predeterminado actual.
+df = spark.sql("SELECT * FROM lh_bronce_ERP_Microsoft.factDiario LIMIT 1000")
+display(df)
+
+# METADATA ********************
+
+# META {
+# META   "language": "python",
+# META   "language_group": "synapse_pyspark"
+# META }
+
+# CELL ********************
+
+df = spark.sql(
+
+"""
+
+SELECT
+
+  *
+
+FROM "lh_bronce_ERP_Microsoft.dbo_dimCF"
+
+
+"""
+
+)
+
+display(df_dimCf)
+
+# METADATA ********************
+
+# META {
+# META   "language": "python",
+# META   "language_group": "synapse_pyspark"
 # META }
 
 # MARKDOWN ********************

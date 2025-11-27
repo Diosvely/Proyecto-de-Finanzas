@@ -1,0 +1,259 @@
+table dim_Calendario
+	lineageTag: de55ed70-67c2-48fe-94bd-c0a6143e3e9e
+	sourceLineageTag: [Gold_dimensional].[dim_Calendario]
+
+	column Fecha
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: 971036a9-3921-4acb-8a96-e85628b019f1
+		sourceLineageTag: Fecha
+		summarizeBy: none
+		sourceColumn: Fecha
+
+		annotation SummarizationSetBy = Automatic
+
+	column Año
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 96490a55-ebe5-454d-b7e6-ff972bc0d9ba
+		sourceLineageTag: Año
+		summarizeBy: none
+		sourceColumn: Año
+
+		annotation SummarizationSetBy = Automatic
+
+	column Trimestre
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 3978d9be-6332-44f2-aa3f-0f383a0184f0
+		sourceLineageTag: Trimestre
+		summarizeBy: none
+		sourceColumn: Trimestre
+
+		annotation SummarizationSetBy = Automatic
+
+	column NumMes
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 255c8108-8d15-451f-b886-56c0547997cd
+		sourceLineageTag: NumMes
+		summarizeBy: none
+		sourceColumn: NumMes
+
+		annotation SummarizationSetBy = Automatic
+
+	column Mes
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 8b62fb81-d36f-41e5-b6a2-114fd3e8fdd3
+		sourceLineageTag: Mes
+		summarizeBy: none
+		sourceColumn: Mes
+
+		annotation SummarizationSetBy = Automatic
+
+	column MesCorto
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: bde720c9-a6b5-4bb7-a43f-fc1debbb4e81
+		sourceLineageTag: MesCorto
+		summarizeBy: none
+		sourceColumn: MesCorto
+
+		annotation SummarizationSetBy = Automatic
+
+	column Día
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: c3707ba2-14ab-425a-aa30-3dbcb696705f
+		sourceLineageTag: Día
+		summarizeBy: none
+		sourceColumn: Día
+
+		annotation SummarizationSetBy = Automatic
+
+	column NombreDíaSemana
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: e2999779-cc9c-41fe-8757-eeb1c70adc29
+		sourceLineageTag: NombreDíaSemana
+		summarizeBy: none
+		sourceColumn: NombreDíaSemana
+
+		annotation SummarizationSetBy = Automatic
+
+	column DíaSemana
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: ba17f930-e63b-4411-afba-ad905c940203
+		sourceLineageTag: DíaSemana
+		summarizeBy: none
+		sourceColumn: DíaSemana
+
+		annotation SummarizationSetBy = Automatic
+
+	column PrimerDíaMes
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: 9e317a79-1272-4ee5-b658-88cc37f141ca
+		sourceLineageTag: PrimerDíaMes
+		summarizeBy: none
+		sourceColumn: PrimerDíaMes
+
+		annotation SummarizationSetBy = Automatic
+
+	column ÚltimoDíaMes
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: 0ed87b5a-1b66-4670-a8fb-0d846f7ab4a3
+		sourceLineageTag: ÚltimoDíaMes
+		summarizeBy: none
+		sourceColumn: ÚltimoDíaMes
+
+		annotation SummarizationSetBy = Automatic
+
+	column PrimerDíaTrimestre
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: 601641ad-965d-4c33-a35b-2bd636320b7c
+		sourceLineageTag: PrimerDíaTrimestre
+		summarizeBy: none
+		sourceColumn: PrimerDíaTrimestre
+
+		annotation SummarizationSetBy = Automatic
+
+	column ÚltimoDíaTrimestre
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: 23e7cd47-da9e-40c5-9936-21546099c31c
+		sourceLineageTag: ÚltimoDíaTrimestre
+		summarizeBy: none
+		sourceColumn: ÚltimoDíaTrimestre
+
+		annotation SummarizationSetBy = Automatic
+
+	column PrimerDíaAño
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: 056f6515-1a6a-4ed2-98fb-e9eac62d07fb
+		sourceLineageTag: PrimerDíaAño
+		summarizeBy: none
+		sourceColumn: PrimerDíaAño
+
+		annotation SummarizationSetBy = Automatic
+
+	column ÚltimoDíaAño
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: 4cadf17c-ba38-4e30-b24a-03f664cd10e2
+		sourceLineageTag: ÚltimoDíaAño
+		summarizeBy: none
+		sourceColumn: ÚltimoDíaAño
+
+		annotation SummarizationSetBy = Automatic
+
+	column Laborable_FinSemana
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: e84fe8cb-c287-40f4-9c1b-02c101d1a404
+		sourceLineageTag: Laborable_FinSemana
+		summarizeBy: none
+		sourceColumn: Laborable_FinSemana
+
+		annotation SummarizationSetBy = Automatic
+
+	column CuentaLaborable
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 99fdcada-0e85-4eac-91ec-c64c386ee25e
+		sourceLineageTag: CuentaLaborable
+		summarizeBy: none
+		sourceColumn: CuentaLaborable
+
+		annotation SummarizationSetBy = Automatic
+
+	column CuentaFinDeSemana
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 445d25fd-b8c2-45cc-8d23-4475546fdf4d
+		sourceLineageTag: CuentaFinDeSemana
+		summarizeBy: none
+		sourceColumn: CuentaFinDeSemana
+
+		annotation SummarizationSetBy = Automatic
+
+	column Estacion
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: c105daf7-a38c-438d-bda0-2b87cbfdbe2e
+		sourceLineageTag: Estacion
+		summarizeBy: none
+		sourceColumn: Estacion
+
+		annotation SummarizationSetBy = Automatic
+
+	column Semana
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 17f1224f-d5d9-49dc-bf3d-e24bde30c8cd
+		sourceLineageTag: Semana
+		summarizeBy: none
+		sourceColumn: Semana
+
+		annotation SummarizationSetBy = Automatic
+
+	column OrdenSemana
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 545474db-92aa-435e-a323-a5e85ceffcb6
+		sourceLineageTag: OrdenSemana
+		summarizeBy: none
+		sourceColumn: OrdenSemana
+
+		annotation SummarizationSetBy = Automatic
+
+	column AñoSemana
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 995a7cfc-5b6b-4f15-aedb-d8b81e20e214
+		sourceLineageTag: AñoSemana
+		summarizeBy: none
+		sourceColumn: AñoSemana
+
+		annotation SummarizationSetBy = Automatic
+
+	column OrdenAñoSemana
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 06bc9bef-b3bf-4908-93f4-f5e8896ad7ab
+		sourceLineageTag: OrdenAñoSemana
+		summarizeBy: none
+		sourceColumn: OrdenAñoSemana
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_Calendario = entity
+		mode: directLake
+		source
+			entityName: dim_Calendario
+			schemaName: Gold_dimensional
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

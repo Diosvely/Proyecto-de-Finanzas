@@ -6,7 +6,18 @@
 # META   "kernel_info": {
 # META     "name": "synapse_pyspark"
 # META   },
-# META   "dependencies": {}
+# META   "dependencies": {
+# META     "lakehouse": {
+# META       "default_lakehouse": "e8f51854-cd89-40a2-b9e6-778f0391713c",
+# META       "default_lakehouse_name": "lh_Silver",
+# META       "default_lakehouse_workspace_id": "66918516-32b2-4b32-a2c1-64fbcc79964f",
+# META       "known_lakehouses": [
+# META         {
+# META           "id": "e8f51854-cd89-40a2-b9e6-778f0391713c"
+# META         }
+# META       ]
+# META     }
+# META   }
 # META }
 
 # MARKDOWN ********************
@@ -17,7 +28,6 @@
 
 from pyspark.sql import functions as F
 from pyspark.sql.types import StringType
-import com.microsoft.spark.fabric
 
 # -------------------------------------------------
 # 0️⃣ Configuración regional en español (intento 1)
@@ -28,8 +38,12 @@ spark.conf.set("spark.sql.locale", "es_ES")
 # -------------------------------------------------
 # 1️⃣ Leer la tabla fact_Diario desde Silver
 # -------------------------------------------------
-fact_df = spark.read.synapsesql("dwh_Silver_dimensional.Silver.fact_Diario") \
-                  .withColumn("Fecha", F.to_date(F.col("Fecha"), "dd/MM/yyyy"))
+
+#fact_df = spark.read.synapsesql("WarehouseName.Schema.Table") \                                para leerlo desde un Warehouse
+ #                 .withColumn("Fecha", F.to_date(F.col("Fecha"), "dd/MM/yyyy"))
+
+fact_df = spark.read.table("lh_Silver.fact_diario") \
+                    .withColumn("Fecha", F.to_date(F.col("Fecha"), "dd/MM/yyyy"))
 
 # -------------------------------------------------
 # 2️⃣ Rango de fechas
@@ -115,7 +129,7 @@ cal_df.show(30, truncate=False)
 
 # MARKDOWN ********************
 
-# # Guardar la tabla calendario en Silver
+# # Guardar la tabla calendario en Gold
 
 # CELL ********************
 
@@ -126,9 +140,9 @@ import com.microsoft.spark.fabric
 from com.microsoft.spark.fabric.Constants import Constants
 
 cal_df.write.mode("overwrite") \
-       .synapsesql("dwh_Silver_dimensional.Silver.dim_Calendario")
+       .synapsesql("dwh_Gold_dimensional&IA.Gold_dimensional.dim_Calendario")
 
-print("✅ Tabla dim_Calendario creada correctamente en Silver")
+print("✅ Tabla dim_Calendario creada correctamente en Gold")
 
 # METADATA ********************
 

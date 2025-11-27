@@ -1,0 +1,73 @@
+table dimcf
+	lineageTag: 5b1441ca-2307-4e18-8642-2b07f3637ab9
+	sourceLineageTag: [Gold_dimensional].[dimcf]
+
+	column Nombre_Cuenta
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 4067d1b3-6b81-4c42-b3dc-5235712bdd4a
+		sourceLineageTag: Nombre_Cuenta
+		summarizeBy: none
+		sourceColumn: Nombre_Cuenta
+
+		annotation SummarizationSetBy = Automatic
+
+	column Nivel_1
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 9e528dd7-78a6-4ebf-8f7f-47d3f2253647
+		sourceLineageTag: Nivel_1
+		summarizeBy: none
+		sourceColumn: Nivel_1
+
+		annotation SummarizationSetBy = Automatic
+
+	column Nivel_2
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 30a7934e-1d31-4c37-9df7-37996c1b7a59
+		sourceLineageTag: Nivel_2
+		summarizeBy: none
+		sourceColumn: Nivel_2
+
+		annotation SummarizationSetBy = Automatic
+
+	column Cuenta4D
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 10db3801-be02-4ac4-a3ff-d1f09ae8e9a3
+		sourceLineageTag: Cuenta4D
+		summarizeBy: none
+		sourceColumn: Cuenta4D
+
+		annotation SummarizationSetBy = Automatic
+
+	column OrdenNivel1
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 918ba5f0-c224-4db5-8c6b-0d6a2a8c3c28
+		sourceLineageTag: OrdenNivel1
+		summarizeBy: none
+		sourceColumn: OrdenNivel1
+
+		annotation SummarizationSetBy = Automatic
+
+	column OrdenNivel2
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 2cb0a280-f047-4e3b-9c25-48fb833ee2f8
+		sourceLineageTag: OrdenNivel2
+		summarizeBy: none
+		sourceColumn: OrdenNivel2
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dimcf = entity
+		mode: directLake
+		source
+			entityName: dimcf
+			schemaName: Gold_dimensional
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

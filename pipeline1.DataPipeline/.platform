@@ -1,12 +1,11 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
   "metadata": {
-    "type": "Lakehouse",
-    "displayName": "lh_Silver",
-    "description": ""
+    "type": "DataPipeline",
+    "displayName": "pipeline1"
   },
   "config": {
     "version": "2.0",
-    "logicalId": "0391713c-778f-b9e6-40a2-cd89e8f51854"
+    "logicalId": "95b5f807-2c7e-9fb2-4434-e016165941a0"
   }
 }

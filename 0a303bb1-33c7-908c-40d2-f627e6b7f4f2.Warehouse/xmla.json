@@ -13,8 +13,8 @@
     "sourceQueryCulture": "en-US",
     "tables": [
       {
-        "name": "dim_Calendario(1)",
-        "sourceLineageTag": "[Silver].[dim_Calendario]",
+        "name": "dim_Calendario",
+        "sourceLineageTag": "[Gold_dimensional].[dim_Calendario]",
         "columns": [
           {
             "name": "Fecha",
@@ -363,7 +363,7 @@
               "type": "entity",
               "entityName": "dim_Calendario",
               "expressionSource": "DatabaseQuery",
-              "schemaName": "Silver"
+              "schemaName": "Gold_dimensional"
             }
           }
         ],
@@ -375,8 +375,416 @@
         ]
       },
       {
-        "name": "fact_Diario",
-        "sourceLineageTag": "[Silver].[fact_Diario]",
+        "name": "dimcf",
+        "sourceLineageTag": "[Gold_dimensional].[dimcf]",
+        "columns": [
+          {
+            "name": "Nombre_Cuenta",
+            "dataType": "string",
+            "sourceColumn": "Nombre_Cuenta",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "Nombre_Cuenta",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "Nivel_1",
+            "dataType": "string",
+            "sourceColumn": "Nivel_1",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "Nivel_1",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "Nivel_2",
+            "dataType": "string",
+            "sourceColumn": "Nivel_2",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "Nivel_2",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "Cuenta4D",
+            "dataType": "string",
+            "sourceColumn": "Cuenta4D",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "Cuenta4D",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "OrdenNivel1",
+            "dataType": "string",
+            "sourceColumn": "OrdenNivel1",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "OrdenNivel1",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "OrdenNivel2",
+            "dataType": "string",
+            "sourceColumn": "OrdenNivel2",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "OrdenNivel2",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "{{Partition_Name}}",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "dimcf",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "Gold_dimensional"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "IsTableInBiModel",
+            "value": "False"
+          }
+        ]
+      },
+      {
+        "name": "dimpgc",
+        "sourceLineageTag": "[Gold_dimensional].[dimpgc]",
+        "columns": [
+          {
+            "name": "Nombre_Cuenta",
+            "dataType": "string",
+            "sourceColumn": "Nombre_Cuenta",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "Nombre_Cuenta",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "Nivel_1",
+            "dataType": "string",
+            "sourceColumn": "Nivel_1",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "Nivel_1",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "Nivel_2",
+            "dataType": "string",
+            "sourceColumn": "Nivel_2",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "Nivel_2",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "Nivel_3",
+            "dataType": "string",
+            "sourceColumn": "Nivel_3",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "Nivel_3",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "Nivel_4",
+            "dataType": "string",
+            "sourceColumn": "Nivel_4",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "Nivel_4",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "Cuenta4D",
+            "dataType": "string",
+            "sourceColumn": "Cuenta4D",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "Cuenta4D",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "OrdenNivel1",
+            "dataType": "string",
+            "sourceColumn": "OrdenNivel1",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "OrdenNivel1",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "OrdenNivel2",
+            "dataType": "string",
+            "sourceColumn": "OrdenNivel2",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "OrdenNivel2",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "OrdenNivel3",
+            "dataType": "string",
+            "sourceColumn": "OrdenNivel3",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "OrdenNivel3",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "OrdenNivel4",
+            "dataType": "string",
+            "sourceColumn": "OrdenNivel4",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "OrdenNivel4",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "{{Partition_Name}}",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "dimpgc",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "Gold_dimensional"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "IsTableInBiModel",
+            "value": "False"
+          }
+        ]
+      },
+      {
+        "name": "dimpyg",
+        "sourceLineageTag": "[Gold_dimensional].[dimpyg]",
+        "columns": [
+          {
+            "name": "Nombre_Cuenta",
+            "dataType": "string",
+            "sourceColumn": "Nombre_Cuenta",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "Nombre_Cuenta",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "Nivel_1",
+            "dataType": "string",
+            "sourceColumn": "Nivel_1",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "Nivel_1",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "Nivel_2",
+            "dataType": "string",
+            "sourceColumn": "Nivel_2",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "Nivel_2",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "Nivel_3",
+            "dataType": "string",
+            "sourceColumn": "Nivel_3",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "Nivel_3",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "Cuenta4D",
+            "dataType": "string",
+            "sourceColumn": "Cuenta4D",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "Cuenta4D",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "OrdenNivel1",
+            "dataType": "string",
+            "sourceColumn": "OrdenNivel1",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "OrdenNivel1",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "OrdenNivel2",
+            "dataType": "string",
+            "sourceColumn": "OrdenNivel2",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "OrdenNivel2",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "OrdenNivel3",
+            "dataType": "string",
+            "sourceColumn": "OrdenNivel3",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "OrdenNivel3",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "{{Partition_Name}}",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "dimpyg",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "Gold_dimensional"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "IsTableInBiModel",
+            "value": "False"
+          }
+        ]
+      },
+      {
+        "name": "fact_diario",
+        "sourceLineageTag": "[Gold_dimensional].[fact_diario]",
         "columns": [
           {
             "name": "ID_cuenta",
@@ -394,9 +802,10 @@
           },
           {
             "name": "Fecha",
-            "dataType": "string",
+            "dataType": "dateTime",
             "sourceColumn": "Fecha",
-            "sourceProviderType": "varchar",
+            "formatString": "General Date",
+            "sourceProviderType": "date",
             "sourceLineageTag": "Fecha",
             "summarizeBy": "none",
             "annotations": [
@@ -423,6 +832,42 @@
                 "value": "{\"isGeneralNumber\":true}"
               }
             ]
+          },
+          {
+            "name": "Debito",
+            "dataType": "double",
+            "sourceColumn": "Debito",
+            "sourceProviderType": "float",
+            "sourceLineageTag": "Debito",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ]
+          },
+          {
+            "name": "Credito",
+            "dataType": "double",
+            "sourceColumn": "Credito",
+            "sourceProviderType": "float",
+            "sourceLineageTag": "Credito",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ]
           }
         ],
         "partitions": [
@@ -431,9 +876,9 @@
             "mode": "directLake",
             "source": {
               "type": "entity",
-              "entityName": "fact_Diario",
+              "entityName": "fact_diario",
               "expressionSource": "DatabaseQuery",
-              "schemaName": "Silver"
+              "schemaName": "Gold_dimensional"
             }
           }
         ],

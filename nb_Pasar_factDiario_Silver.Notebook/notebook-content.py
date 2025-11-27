@@ -274,7 +274,9 @@ print(f"Suma total de Importe: {suma_importe}")
 df_spark_final = df_spark_filtrado.select(
     "G_L Account No_",
     "Posting Date",
-    "Amount"
+    "Amount",
+    "Debit Amount",
+    "Credit Amount"
 )
 
 # Mostrar algunas filas para validar
@@ -320,7 +322,9 @@ df_spark_final.show(10, truncate=False)
 # Renombrar columnas en df_spark_final
 df_spark_final = df_spark_final.withColumnRenamed("G_L Account No_", "ID_cuenta") \
                                .withColumnRenamed("Posting Date", "Fecha") \
-                               .withColumnRenamed("Amount", "Importe")
+                               .withColumnRenamed("Amount", "Importe")\
+                               .withColumnRenamed("Debit Amount", "Debito")\
+                               .withColumnRenamed("Credit Amount", "Credito")
 
 # Mostrar esquema y primeras filas para validar
 df_spark_final.printSchema()
@@ -357,6 +361,21 @@ print(f"Suma total de Importe: {suma_importe}")
 
 # CELL ********************
 
+df_spark_final.write.mode("overwrite").saveAsTable("lh_Silver.fact_Diario")
+
+# METADATA ********************
+
+# META {
+# META   "language": "python",
+# META   "language_group": "synapse_pyspark"
+# META }
+
+# MARKDOWN ********************
+
+# #Esto es para poner despues en el datawarehause copiar daros 
+
+# CELL ********************
+
 import com.microsoft.spark.fabric                # Importa librerías Fabric para escribir en DW
 from com.microsoft.spark.fabric.Constants import Constants  # Constantes para la integración
 
@@ -364,7 +383,7 @@ from com.microsoft.spark.fabric.Constants import Constants  # Constantes para la
 
 # Sobrescribe la tabla si ya existe
 df_spark_final.write \
-    .mode("overwrite").synapsesql("dwh_Silver_dimensional.Silver.fact_Diario")  # Destino: DW, esquema Silver, tabla factDiario
+    .mode("overwrite").synapsesql("lh_Silver.fact_Diario")  # Destino: DW, esquema Silver, tabla factDiario
 
 # METADATA ********************
 

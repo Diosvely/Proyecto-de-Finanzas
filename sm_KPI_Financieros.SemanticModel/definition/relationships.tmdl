@@ -1,0 +1,16 @@
+relationship ac849b05-8e14-c54d-b69b-b9da6f879d8b
+	fromColumn: fact_diario.Fecha
+	toColumn: dim_Calendario.Fecha
+
+relationship 8169eb00-1f4e-3cf1-8de6-4c757ad1f373
+	fromColumn: fact_diario.ID_cuenta
+	toColumn: dimcf.Cuenta4D
+
+relationship 186ebeae-dbfd-5b03-cc5b-f3e367344455
+	fromColumn: fact_diario.ID_cuenta
+	toColumn: dimpyg.Cuenta4D
+
+relationship c1ed8c5f-ace3-7641-fe2d-ca9e91bd5591
+	fromColumn: fact_diario.ID_cuenta
+	toColumn: dimpgc.Cuenta4D
+

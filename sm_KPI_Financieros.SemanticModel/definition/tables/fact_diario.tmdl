@@ -1,0 +1,70 @@
+table fact_diario
+	lineageTag: 570968a1-8b7c-4826-b211-3013afb28c4a
+	sourceLineageTag: [Gold_dimensional].[fact_diario]
+
+	column ID_cuenta
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: b99c0573-b465-477c-a6df-5fbe8d4dd3d2
+		sourceLineageTag: ID_cuenta
+		summarizeBy: none
+		sourceColumn: ID_cuenta
+
+		annotation SummarizationSetBy = Automatic
+
+	column Fecha
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: 90f0aaed-c324-4c4c-9429-3a459d900119
+		sourceLineageTag: Fecha
+		summarizeBy: none
+		sourceColumn: Fecha
+
+		annotation SummarizationSetBy = Automatic
+
+	column Importe
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 4a886f99-7849-40e4-8c56-a1c0c1847a0e
+		sourceLineageTag: Importe
+		summarizeBy: sum
+		sourceColumn: Importe
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Debito
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 1f1f61f0-e211-43ff-b50f-ecb4a0c5bc99
+		sourceLineageTag: Debito
+		summarizeBy: sum
+		sourceColumn: Debito
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Credito
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 936cb8ea-3bd9-489f-9a02-fb40c1fd8d30
+		sourceLineageTag: Credito
+		summarizeBy: sum
+		sourceColumn: Credito
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition fact_diario = entity
+		mode: directLake
+		source
+			entityName: fact_diario
+			schemaName: Gold_dimensional
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

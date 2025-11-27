@@ -1,12 +1,11 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
   "metadata": {
-    "type": "Lakehouse",
-    "displayName": "lh_Silver",
-    "description": ""
+    "type": "SemanticModel",
+    "displayName": "sm_KPI_Financieros"
   },
   "config": {
     "version": "2.0",
-    "logicalId": "0391713c-778f-b9e6-40a2-cd89e8f51854"
+    "logicalId": "cffaa9ea-f4e5-89bc-4ab5-0b561e8f7b84"
   }
 }

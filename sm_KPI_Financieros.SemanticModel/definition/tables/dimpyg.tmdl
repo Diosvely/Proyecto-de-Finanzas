@@ -1,0 +1,93 @@
+table dimpyg
+	lineageTag: 1d83182f-9da6-47e9-9d40-7d0fd14b8d7e
+	sourceLineageTag: [Gold_dimensional].[dimpyg]
+
+	column Nombre_Cuenta
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 90a39bb3-c26f-4829-82ce-37fcafbb6f9e
+		sourceLineageTag: Nombre_Cuenta
+		summarizeBy: none
+		sourceColumn: Nombre_Cuenta
+
+		annotation SummarizationSetBy = Automatic
+
+	column Nivel_1
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: d485e747-8b9d-46d6-a471-705eb4cd8145
+		sourceLineageTag: Nivel_1
+		summarizeBy: none
+		sourceColumn: Nivel_1
+
+		annotation SummarizationSetBy = Automatic
+
+	column Nivel_2
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 567d469c-f910-472e-8ad6-1104a572f8f6
+		sourceLineageTag: Nivel_2
+		summarizeBy: none
+		sourceColumn: Nivel_2
+
+		annotation SummarizationSetBy = Automatic
+
+	column Nivel_3
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 786c4020-f1f0-4d3e-a2d2-af4c7fbe0138
+		sourceLineageTag: Nivel_3
+		summarizeBy: none
+		sourceColumn: Nivel_3
+
+		annotation SummarizationSetBy = Automatic
+
+	column Cuenta4D
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: a485e0c2-f470-4b7c-8b05-462acff5ef22
+		sourceLineageTag: Cuenta4D
+		summarizeBy: none
+		sourceColumn: Cuenta4D
+
+		annotation SummarizationSetBy = Automatic
+
+	column OrdenNivel1
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 4e23d1b3-2aa6-4f13-a578-b0d498a45df9
+		sourceLineageTag: OrdenNivel1
+		summarizeBy: none
+		sourceColumn: OrdenNivel1
+
+		annotation SummarizationSetBy = Automatic
+
+	column OrdenNivel2
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 8168342e-2af1-491d-819b-97c2c08b5bcd
+		sourceLineageTag: OrdenNivel2
+		summarizeBy: none
+		sourceColumn: OrdenNivel2
+
+		annotation SummarizationSetBy = Automatic
+
+	column OrdenNivel3
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 33aee47f-28f0-4219-b04d-12cb0d0826b3
+		sourceLineageTag: OrdenNivel3
+		summarizeBy: none
+		sourceColumn: OrdenNivel3
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dimpyg = entity
+		mode: directLake
+		source
+			entityName: dimpyg
+			schemaName: Gold_dimensional
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

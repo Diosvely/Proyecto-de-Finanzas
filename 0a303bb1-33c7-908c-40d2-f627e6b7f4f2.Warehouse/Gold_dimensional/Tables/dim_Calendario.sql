@@ -1,4 +1,4 @@
-CREATE TABLE [Silver].[dim_Calendario] (
+CREATE TABLE [Gold_dimensional].[dim_Calendario] (
 
 	[Fecha] date NOT NULL, 
 	[Año] int NOT NULL, 

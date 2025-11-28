@@ -372,7 +372,7 @@ df_spark_final.write.mode("overwrite").saveAsTable("lh_Silver.fact_Diario")
 
 # MARKDOWN ********************
 
-# #Esto es para poner despues en el datawarehause copiar daros 
+# # Esto es para poner despues en el datawarehause copiar datos 
 
 # CELL ********************
 

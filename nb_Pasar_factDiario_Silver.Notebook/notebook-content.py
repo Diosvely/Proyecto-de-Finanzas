@@ -22,7 +22,11 @@
 
 # MARKDOWN ********************
 
-# ### Leer el fichero factDiario.csv desde la capa Bronze del Lakehouse y obtener un DataFrame inicial.
+# # 📘 Notebook: nb_Fact_Bronze_to_Silver_Spark
+
+# MARKDOWN ********************
+
+# ### 1️⃣ Leer el fichero factDiario.csv desde la capa Bronze del Lakehouse y obtener un DataFrame inicial.
 
 # CELL ********************
 
@@ -67,7 +71,7 @@ df_spark.printSchema()
 
 # MARKDOWN ********************
 
-# # Convertir Amount en número lo interpretaba como texto string
+# ## 2️⃣ Convertir Amount en número lo interpretaba como texto string
 
 # CELL ********************
 
@@ -94,10 +98,7 @@ df_spark.select("Amount").show(10, truncate=False)
 
 # MARKDOWN ********************
 
-
-# MARKDOWN ********************
-
-# # Comprobación de suma total (control de calidad)
+# ##  3️⃣ Comprobación de suma total (control de calidad)
 
 # CELL ********************
 
@@ -115,7 +116,7 @@ print(f"Suma total de Importe: {suma_importe}")
 
 # MARKDOWN ********************
 
-# # Código para inspeccionar cada columna y mostrar los caracteres no ASCII que contiene
+# ##  4️⃣ Código para inspeccionar cada columna y mostrar los caracteres no ASCII que contiene
 
 # CELL ********************
 
@@ -146,10 +147,7 @@ for col in df_spark.columns:
 
 # MARKDOWN ********************
 
-
-# MARKDOWN ********************
-
-# # Crear una columna Combinada
+# ## 5️⃣ Crear una columna Combinada
 
 # CELL ********************
 
@@ -173,7 +171,7 @@ df_spark.select("G_L Account No_", "Description_", "Combinada").show(5, truncate
 
 # MARKDOWN ********************
 
-# # Crear una columna personalizada para saber si un asiento es de regularización o no
+# ## 6️⃣ Crear una columna personalizada para saber si un asiento es de regularización o no
 
 # CELL ********************
 
@@ -199,7 +197,7 @@ df_spark.select("Combinada", "Personalizado").show(20, truncate=False)
 
 # MARKDOWN ********************
 
-# # Filtrar el dataframe quedandome solo con los personalizado = 1
+# ## 7️⃣ Filtrar el dataframe quedandome solo con los personalizado = 1
 
 # MARKDOWN ********************
 
@@ -245,10 +243,7 @@ df_spark_filtrado.show(10, truncate=False)
 
 # MARKDOWN ********************
 
-
-# MARKDOWN ********************
-
-# # Comprobar que la Suma despues de filtrar esta OK
+# ## 8️⃣ Comprobar que la Suma despues de filtrar esta OK
 
 # CELL ********************
 
@@ -266,7 +261,7 @@ print(f"Suma total de Importe: {suma_importe}")
 
 # MARKDOWN ********************
 
-# # Quitar Columnas que no se necesitan, dejo las que quiero
+# ## 9️⃣ Quitar Columnas que no se necesitan, dejo las que quiero
 
 # CELL ********************
 
@@ -291,7 +286,7 @@ df_spark_final.show(10, truncate=False)
 
 # MARKDOWN ********************
 
-# ### Extraer los 4 primeros caracteres para crear un columna para relacionar con las dimensiones
+# ### 🔟 Extraer los 4 primeros caracteres para crear un columna para relacionar con las dimensiones
 
 # CELL ********************
 
@@ -315,7 +310,7 @@ df_spark_final.show(10, truncate=False)
 
 # MARKDOWN ********************
 
-# # Cambiar nombres a las Tablas
+# ## 1️⃣1️⃣ Cambiar nombres a las Tablas
 
 # CELL ********************
 
@@ -339,7 +334,7 @@ df_spark_final.show(10, truncate=False)
 
 # MARKDOWN ********************
 
-# # Comprobar que el importe es el correcto antes de llevarlo a la capa plata
+# ## 1️⃣ 2️⃣ Comprobar que el importe es el correcto antes de llevarlo a la capa plata
 
 # CELL ********************
 
@@ -357,7 +352,7 @@ print(f"Suma total de Importe: {suma_importe}")
 
 # MARKDOWN ********************
 
-# # LLevar a la capa Silver los resultados de factdiario
+# ##  1️⃣ 3️⃣  LLevar a la capa Silver los resultados de factdiario
 
 # CELL ********************
 
@@ -372,7 +367,7 @@ df_spark_final.write.mode("overwrite").saveAsTable("lh_Silver.fact_Diario")
 
 # MARKDOWN ********************
 
-# ## Esto es opcionar por si quiero copiar en un datawarehause en ves de un lakehause
+# ## 1️⃣ 4️⃣  Esto es opcionar por si quiero copiar en un datawarehause en ves de un lakehause
 
 # CELL ********************
 

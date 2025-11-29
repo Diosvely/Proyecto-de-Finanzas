@@ -26,7 +26,11 @@
 
 # MARKDOWN ********************
 
-# ## 1️⃣ Crear staging a partir del CSV (importación directa)
+# ## 1️⃣ Crear staging a partir del CSV (importación directa) utilizando spark
+
+# MARKDOWN ********************
+
+# ### ➡️ Pasar de files a tablas dentro del mismo lakehause 
 
 # CELL ********************
 
@@ -87,17 +91,9 @@ print("¡Carga exitosa! La tabla 'dbo_factDiario' ya está disponible en su Lake
 # META   "language_group": "synapse_pyspark"
 # META }
 
-# CELL ********************
+# MARKDOWN ********************
 
-df = spark.sql("SELECT * FROM lh_bronce_ERP_Microsoft.dbo_factdiario LIMIT 5")
-display(df)
-
-# METADATA ********************
-
-# META {
-# META   "language": "python",
-# META   "language_group": "synapse_pyspark"
-# META }
+# # 2️⃣ LLevar de la capa bonze to silver directo a traves de SQL puro los cambios 
 
 # CELL ********************
 

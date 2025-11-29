@@ -22,7 +22,11 @@
 
 # MARKDOWN ********************
 
-# # 2️⃣ Usar %%sql para ejecutar SQL puro
+# # 1️⃣ Usar %%sql para ejecutar SQL puro
+
+# MARKDOWN ********************
+
+# ## ✔️ Dimensión PGC (Plan General Contable)
 
 # CELL ********************
 
@@ -53,6 +57,10 @@
 
 # MARKDOWN ********************
 
+# ## ✔️ Dimensión PyG (Pérdidas y Ganancias)
+
+# MARKDOWN ********************
+
 
 # CELL ********************
 
@@ -78,6 +86,10 @@
 # META   "language": "sparksql",
 # META   "language_group": "synapse_pyspark"
 # META }
+
+# MARKDOWN ********************
+
+# ## ✔️ Dimensión de Flujo de Caja (Cash Flow)
 
 # CELL ********************
 

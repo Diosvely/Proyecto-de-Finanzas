@@ -22,17 +22,17 @@
 
 # MARKDOWN ********************
 
-# # ===================
-# # Notebook: nb_Dimensiones_Bronze_to_Silver
+# 
+# #  📕  Notebook: nb_Dimensiones_Bronze_to_Silver
 # ### Objetivo:
-# ###   - Leer tablas dimensionales desde capa Bronze (Lakehouse lh_bronce_ERP_Microsoft)
-# ###   - Estandarizar nombres de columnas
-# ###   - Escribir las tablas limpias en la capa Silver (Lakehouse lh_silver)
+# ### ➡️ Leer tablas dimensionales desde capa Bronze (Lakehouse lh_bronce_ERP_Microsoft)
+# ### ➡️ Estandarizar nombres de columnas
+# ### ➡️ Escribir las tablas limpias en la capa Silver (Lakehouse lh_silver)
 # # ====================
 
 # MARKDOWN ********************
 
-# ## 1. Cargar tablas dimension en Bronze
+# ## 1️⃣  Cargar tablas dimension en Bronze
 
 # CELL ********************
 
@@ -112,7 +112,7 @@ display(dimCF)
 
 # MARKDOWN ********************
 
-# ## 2. Guardar dimensiones en capa Silver
+# ## 2️⃣ Guardar dimensiones en capa Silver
 # ### ---------------------------------------------------------------
 
 

@@ -22,7 +22,7 @@
 
 # MARKDOWN ********************
 
-# # Leer el archivo Csv factDiario.csv desde el Lakehouse (Bronce), transformarlo a DataFrame Spark y mostrar una vista previa.
+# ### Leer el fichero factDiario.csv desde la capa Bronze del Lakehouse y obtener un DataFrame inicial.
 
 # CELL ********************
 
@@ -67,7 +67,7 @@ df_spark.printSchema()
 
 # MARKDOWN ********************
 
-# # Convertir Amount en numero lo interpretaba como texto string
+# # Convertir Amount en número lo interpretaba como texto string
 
 # CELL ********************
 
@@ -97,7 +97,7 @@ df_spark.select("Amount").show(10, truncate=False)
 
 # MARKDOWN ********************
 
-# # Comprobacion de la suma total para ver si da con correcto
+# # Comprobación de suma total (control de calidad)
 
 # CELL ********************
 
@@ -291,7 +291,7 @@ df_spark_final.show(10, truncate=False)
 
 # MARKDOWN ********************
 
-# # Extraer los 4 primeros caracteres
+# ### Extraer los 4 primeros caracteres para crear un columna para relacionar con las dimensiones
 
 # CELL ********************
 
@@ -372,7 +372,7 @@ df_spark_final.write.mode("overwrite").saveAsTable("lh_Silver.fact_Diario")
 
 # MARKDOWN ********************
 
-# # Esto es para poner despues en el datawarehause copiar datos 
+# ## Esto es opcionar por si quiero copiar en un datawarehause en ves de un lakehause
 
 # CELL ********************
 

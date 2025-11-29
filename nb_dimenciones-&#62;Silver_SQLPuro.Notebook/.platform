@@ -2,10 +2,10 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
   "metadata": {
     "type": "Notebook",
-    "displayName": "nb_Fact_Bronze_to_Silver_Spark"
+    "displayName": "nb_dimenciones->Silver_SQLPuro"
   },
   "config": {
     "version": "2.0",
-    "logicalId": "908b8d27-c319-ada9-4b1c-e44fcd57a319"
+    "logicalId": "cf33b03a-d59e-9192-47e8-c5e0aad52103"
   }
 }

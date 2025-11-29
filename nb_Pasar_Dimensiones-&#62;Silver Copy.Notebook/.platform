@@ -2,10 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
   "metadata": {
     "type": "Notebook",
-    "displayName": "nb_Fact_Bronze_to_Silver_Spark"
+    "displayName": "nb_Pasar_Dimensiones->Silver Copy",
+    "description": "New notebook"
   },
   "config": {
     "version": "2.0",
-    "logicalId": "908b8d27-c319-ada9-4b1c-e44fcd57a319"
+    "logicalId": "7197e95c-ddab-9a75-42e0-8ac119e10398"
   }
 }

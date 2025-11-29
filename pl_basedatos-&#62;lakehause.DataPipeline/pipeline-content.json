@@ -149,10 +149,10 @@
           "secureInput": false,
           "secureOutput": false
         },
-        "name": "Copy data1",
+        "name": "copy_sql_dim_cf",
         "dependsOn": [
           {
-            "activity": "Copy job_7c0",
+            "activity": "copy_sql_dim_PYG_PGC",
             "dependencyConditions": [
               "Completed"
             ]
@@ -175,7 +175,7 @@
           "secureInput": false,
           "secureOutput": false
         },
-        "name": "Copy job_7c0",
+        "name": "copy_sql_dim_PYG_PGC",
         "dependsOn": []
       }
     ]

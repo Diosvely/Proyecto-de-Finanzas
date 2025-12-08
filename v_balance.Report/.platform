@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "v_balance"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "26d0ec0a-32c2-bdd3-4ccd-5a6b5b11dcc8"
+  }
+}

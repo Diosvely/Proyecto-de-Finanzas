@@ -1,9 +1,165 @@
 table dim_Calendario
 	lineageTag: de55ed70-67c2-48fe-94bd-c0a6143e3e9e
 	sourceLineageTag: [Gold_dimensional].[dim_Calendario]
+	dataCategory: Time
+
+	measure 01_AcivoActual =
+			
+			/*--------------------------------------------------------------------------------------------------------------------------------------
+			Objetivo: obtener el resultado de cada partida de activo solo para valores distintos de cero. En caso contrario, obtener BLANK.
+			--------------------------------------------------------------------------------------------------------------------------------------*/
+			VAR _fechaMax = MAX(dim_Calendario[Fecha])                       //Almacenamos la fecha máxima del contexto
+			VAR _activo =   CALCULATE(                                      //Calculamos...
+			                    SUM(fact_diario[Importe]),                   //La suma de importes del diario....
+			                    dimpgc[Nivel_1] = "ACTIVO",          //...que corresponden al activo...
+			                    dim_Calendario[Fecha] <= _fechaMax           //...desde la fecha máxima del contexto, hacia atrás en el histórico
+			                )
+			
+			VAR _result =   IF(_activo <> 0, _activo)                       //Solo si el resultado no es 0 (cero), obtenemos el resultado
+			
+			RETURN          _result                                         //Devolvemos el resultado
+		displayFolder: Balance
+		lineageTag: 9fa45375-dadb-4089-ad41-376101ff5a4a
+
+		changedProperty = Name
+
+		changedProperty = DisplayFolder
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 02_ActivoAnterior =
+			
+			/*--------------------------------------------------------------------------------------------------------------------------
+			Objetivo: calcular el Activo, pero trasladado un año al pasado.
+			--------------------------------------------------------------------------------------------------------------------------*/
+			
+			CALCULATE(                          //Calculamos...
+			    [01_AcivoActual],           //El activo del año actual...
+			    DATEADD(                        //...con las condiciones del cálculo las impone esta función...
+			        dim_Calendario[Fecha],       //...basándose en la tabla de calendario del modelo...
+			        -1,                         //...traslada el cálculo un período al pasado...
+			        YEAR                        //...siendo ese perdíodo 1 año.
+			    )
+			)
+		displayFolder: Balance
+		lineageTag: 760439f9-0280-4e59-aa0e-6bdf8a3b35f3
+
+		changedProperty = Name
+
+		changedProperty = DisplayFolder
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 03_%variacionActivo =
+			
+			/*--------------------------------------------------------------------------------------------------------------------------------------
+			Objetivo: obtener la variación % Act-Ant evitando resultados incorrectos que se dan en algunos casos
+			--------------------------------------------------------------------------------------------------------------------------------------*/
+			
+			VAR _act =      [01_AcivoActual]                            //Almacenamos en una variable el activo del año actual
+			VAR _ant =      [02_ActivoAnterior]                          //Almacenamos en una variable el activo del año anterior
+			
+			VAR _result =   SWITCH(                                         //Elegimos...
+			                    TRUE(),                                     //...la expresión que sea cierta, entre las siguientes:
+			                    _ant <> 0 && _act <> 0, DIVIDE(             //Si actual y anterior no son 0 (cero) ninguno de ellos...
+			                                                _act - _ant,    //...se ejecuta la fórmula de la variación...
+			                                                ABS(_ant)       //...preparada para evitar errores por valores negativos
+			                                            ),
+			                    _act = _ant,            BLANK(),            //Si actual y anterior son 0 (cero), entonces, queremos un BLANK
+			                    _act - _ant > 0,        1,                  //Si actual no es 0 (cero), pero anterior sí lo es, obtenemos +100%
+			                    -1                                          //Si anterior no es 0 (cero), pero actual sí lo es, obtenemos -100%
+			                )
+			
+			RETURN          _result                                         //Devolvemos resultado
+		displayFolder: Balance
+		lineageTag: 6fc1fb74-f10f-4a8e-b168-2789b7a6afab
+
+		changedProperty = Name
+
+		changedProperty = DisplayFolder
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 04_PasivoActual =
+			
+			/*--------------------------------------------------------------------------------------------------------------------------------------
+			Objetivo: obtener el resultado de cada partida de activo solo para valores distintos de cero. En caso contrario, obtener BLANK.
+			--------------------------------------------------------------------------------------------------------------------------------------*/
+			VAR _fechaMax = MAX(dim_Calendario[Fecha])                       //Almacenamos la fecha máxima del contexto
+			VAR _pasivo =   CALCULATE(                                      //Calculamos...
+			                    SUM(fact_diario[Importe]),                   //La suma de importes del diario....
+			                    dimpgc[Nivel_1] = "PASIVO",          //...que corresponden al activo...
+			                    dim_Calendario[Fecha] <= _fechaMax           //...desde la fecha máxima del contexto, hacia atrás en el histórico
+			                )
+			
+			VAR _result =   IF(_pasivo <> 0, _pasivo)                       //Solo si el resultado no es 0 (cero), obtenemos el resultado
+			
+			RETURN          _result                                         //Devolvemos el resultado
+		displayFolder: Balance
+		lineageTag: 352799b1-6ec8-4be4-af4f-9a6371968b47
+
+		changedProperty = Name
+
+		changedProperty = DisplayFolder
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 05_PasivoAnterior =
+			
+			/*--------------------------------------------------------------------------------------------------------------------------
+			Objetivo: calcular el Activo, pero trasladado un año al pasado.
+			--------------------------------------------------------------------------------------------------------------------------*/
+			
+			CALCULATE(                          //Calculamos...
+			    [04_PasivoActual],           //El activo del año actual...
+			    DATEADD(                        //...con las condiciones del cálculo las impone esta función...
+			        dim_Calendario[Fecha],       //...basándose en la tabla de calendario del modelo...
+			        -1,                         //...traslada el cálculo un período al pasado...
+			        YEAR                        //...siendo ese perdíodo 1 año.
+			    )
+			)
+		displayFolder: Balance
+		lineageTag: 4e166817-fd79-4f7f-97fa-fc524c2e6aad
+
+		changedProperty = Name
+
+		changedProperty = DisplayFolder
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 06_%variacionPasivo =
+			
+			/*--------------------------------------------------------------------------------------------------------------------------------------
+			Objetivo: obtener la variación % Act-Ant evitando resultados incorrectos que se dan en algunos casos
+			--------------------------------------------------------------------------------------------------------------------------------------*/
+			
+			VAR _act =      [04_PasivoActual]                            //Almacenamos en una variable el activo del año actual
+			VAR _ant =      [05_PasivoAnterior]                          //Almacenamos en una variable el activo del año anterior
+			
+			VAR _result =   SWITCH(                                         //Elegimos...
+			                    TRUE(),                                     //...la expresión que sea cierta, entre las siguientes:
+			                    _ant <> 0 && _act <> 0, DIVIDE(             //Si actual y anterior no son 0 (cero) ninguno de ellos...
+			                                                _act - _ant,    //...se ejecuta la fórmula de la variación...
+			                                                ABS(_ant)       //...preparada para evitar errores por valores negativos
+			                                            ),
+			                    _act = _ant,            BLANK(),            //Si actual y anterior son 0 (cero), entonces, queremos un BLANK
+			                    _act - _ant > 0,        1,                  //Si actual no es 0 (cero), pero anterior sí lo es, obtenemos +100%
+			                    -1                                          //Si anterior no es 0 (cero), pero actual sí lo es, obtenemos -100%
+			                )
+			
+			RETURN          _result                                         //Devolvemos resultado
+		displayFolder: Balance
+		lineageTag: 24372ffd-9dbc-4808-b4d0-55e30fe11dfe
+
+		changedProperty = Name
+
+		changedProperty = DisplayFolder
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column Fecha
 		dataType: dateTime
+		isKey
 		formatString: General Date
 		sourceProviderType: date
 		lineageTag: 971036a9-3921-4acb-8a96-e85628b019f1

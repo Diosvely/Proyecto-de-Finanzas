@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Notebook",
+    "displayName": "nb_PGC_PDF"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "64b18258-87af-8bae-449d-e610feaeb473"
+  }
+}

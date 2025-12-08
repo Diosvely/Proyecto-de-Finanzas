@@ -10,6 +10,8 @@ table fact_diario
 		summarizeBy: none
 		sourceColumn: ID_cuenta
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column Fecha

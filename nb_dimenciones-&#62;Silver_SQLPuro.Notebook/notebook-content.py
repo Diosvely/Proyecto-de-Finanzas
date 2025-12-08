@@ -44,7 +44,8 @@
 # MAGIC         OrdenNivel2,
 # MAGIC         OrdenNivel3,
 # MAGIC         OrdenNivel4
-# MAGIC     FROM lh_bronce_ERP_Microsoft.dbo_dimPGC;
+# MAGIC     FROM lh_bronce_ERP_Microsoft.dbo_dimPGC
+# MAGIC     WHERE Cuenta4D is NOT null ;
 # MAGIC 
 
 
@@ -77,6 +78,7 @@
 # MAGIC         OrdenNivel2,
 # MAGIC         OrdenNivel3
 # MAGIC     FROM lh_bronce_ERP_Microsoft.dbo_dimPyG
+# MAGIC      WHERE Cuenta4D is NOT null ;
 # MAGIC 
 
 
@@ -104,6 +106,7 @@
 # MAGIC         OrdenNivel1,
 # MAGIC         OrdenNivel2
 # MAGIC     FROM lh_bronce_ERP_Microsoft.dbo_dimCF
+# MAGIC      WHERE Cuenta4D is NOT null ;
 # MAGIC 
 
 

@@ -1,11 +1,11 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
   "metadata": {
-    "type": "Lakehouse",
-    "displayName": "DataflowsStagingLakehouse"
+    "type": "DataPipeline",
+    "displayName": "pl_dinamyc365BC->lhCrudo"
   },
   "config": {
     "version": "2.0",
-    "logicalId": "581dff5d-e9cc-930e-4bbe-3bbd24913f18"
+    "logicalId": "11234fd0-9916-8f01-4ec7-550f6444b801"
   }
 }

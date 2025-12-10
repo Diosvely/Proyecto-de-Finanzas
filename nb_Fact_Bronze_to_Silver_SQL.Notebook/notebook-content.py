@@ -30,7 +30,7 @@
 
 # MARKDOWN ********************
 
-# ### ➡️ Pasar de files a tablas dentro del mismo lakehause 
+# ### ➡️ Pasar de files a tablas dentro del mismo lakehouse 
 
 # CELL ********************
 
@@ -98,7 +98,7 @@ print("¡Carga exitosa! La tabla 'dbo_factDiario' ya está disponible en su Lake
 # CELL ********************
 
 # MAGIC %%sql
-# MAGIC  CREATE OR REPLACE TABLE lh_Silver.fact_Diario AS
+# MAGIC CREATE OR REPLACE TABLE lh_Silver.fact_Diario AS
 # MAGIC  WITH Base AS (
 # MAGIC      -- Limpieza inicial del CSV
 # MAGIC      SELECT

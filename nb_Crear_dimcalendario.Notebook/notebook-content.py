@@ -22,7 +22,7 @@
 
 # MARKDOWN ********************
 
-# # Creación de una tabla calendario en Spark
+# # 1- Creación de una tabla calendario en Spark
 
 # CELL ********************
 
@@ -129,7 +129,7 @@ cal_df.show(30, truncate=False)
 
 # MARKDOWN ********************
 
-# # Guardar la tabla calendario en Gold
+# # 2- Guardar la tabla calendario en Gold
 
 # CELL ********************
 

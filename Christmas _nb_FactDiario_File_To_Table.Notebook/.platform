@@ -1,11 +1,12 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
   "metadata": {
-    "type": "DataPipeline",
-    "displayName": "Christmas_pl_dim CF y Copy Job_to_bronze"
+    "type": "Notebook",
+    "displayName": "Christmas _nb_FactDiario_File_To_Table",
+    "description": "New notebook"
   },
   "config": {
     "version": "2.0",
-    "logicalId": "539c226a-a995-b985-4de1-60045b07747a"
+    "logicalId": "6f0de79c-48f8-9e74-48de-c363155a9ed8"
   }
 }

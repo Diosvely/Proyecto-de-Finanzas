@@ -96,7 +96,7 @@
 # CELL ********************
 
 # MAGIC %%sql
-# MAGIC --  Dimensión de Flujo de Caja (Cash Flow)
+# MAGIC --Dimensión de Flujo de Caja (Cash Flow)
 # MAGIC  CREATE OR REPLACE TABLE lh_silver.dbo_dimCF
 # MAGIC     SELECT  
 # MAGIC         `Nombre Cuenta`  AS Nombre_Cuenta,

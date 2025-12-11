@@ -18,4 +18,5 @@ ref table dimcf
 ref table dimpgc
 ref table fact_diario
 ref table dim_Calendario
+ref table _Medidas
 

@@ -1,11 +1,12 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
   "metadata": {
-    "type": "DataPipeline",
-    "displayName": "Christmas_pl_dim CF y Copy Job_to_bronze"
+    "type": "Notebook",
+    "displayName": "nb_pasar_Silver-Gold_MismoEsquema",
+    "description": "New notebook"
   },
   "config": {
     "version": "2.0",
-    "logicalId": "539c226a-a995-b985-4de1-60045b07747a"
+    "logicalId": "215142ef-7527-a49f-459a-0d3222bdee6b"
   }
 }
